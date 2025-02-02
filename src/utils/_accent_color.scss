@@ -17,8 +17,7 @@ $accentTextColor: AccentColorText;
     @if $mode == "Highlight" {
       $accentColor: Highlight !global;
       $accentTextColor: HighlightText !global;
-    }
-    @else {
+    } @else {
       $accentColor: -moz-accent-color !global;
       $accentTextColor: -moz-accent-color-foreground !global;
     }

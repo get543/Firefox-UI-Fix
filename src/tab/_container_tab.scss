@@ -6,9 +6,9 @@
 
 #tabbrowser-tabs {
   $containerPositionX: 9px;
-  --uc-container-position-x: #{ $containerPositionX };
+  --uc-container-position-x: #{$containerPositionX};
   &:-moz-locale-dir(rtl) {
-    --uc-container-position-x: #{ $containerPositionX * -1 };
+    --uc-container-position-x: #{$containerPositionX * -1};
   }
 
   --uc-container-position-y-default: 11.5px;

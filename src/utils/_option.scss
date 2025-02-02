@@ -12,10 +12,10 @@
 }
 
 @function _pref($option) {
-  @return "-moz-bool-pref(\"#{$option}\")";
+  @return '-moz-bool-pref("#{$option}")';
 }
 @function _prefMedia($option) {
-  @return "(-moz-bool-pref: \"#{$option}\")";
+  @return '(-moz-bool-pref: "#{$option}")';
 }
 
 @function _getOption($optionNames, $positive: true) {
@@ -23,17 +23,16 @@
   @for $i from 1 through length($optionNames) {
     $option: nth($optionNames, $i);
     $separator: if(
-      list-separator($optionNames) == "comma", "or", if(
-        list-separator($optionNames) == "space", "and", null
-      )
+      list-separator($optionNames) == "comma",
+      "or",
+      if(list-separator($optionNames) == "space", "and", null)
     );
     $result: $result + _prefix($separator, $i);
 
     @if type-of($option) == "list" {
       $result: $result + "(" + _getOption($option, $positive) + ")";
-    }
-    @else {
-      $result: $result +  _not(_pref($option), $positive);
+    } @else {
+      $result: $result + _not(_pref($option), $positive);
     }
   }
   @return $result;
@@ -42,7 +41,7 @@
   // Test warning for top level `not`
   @if length($optionNames) == 1 {
     $option: nth($optionNames, 1);
-    @if not (type-of($option) == "list") {
+    @if not(type-of($option) == "list") {
       $option: _pref($option);
       @return if($positive, $option, "not " + $option);
     }
@@ -55,17 +54,16 @@
   @for $i from 1 through length($optionNames) {
     $option: nth($optionNames, $i);
     $separator: if(
-      list-separator($optionNames) == "comma", ",", if(
-        list-separator($optionNames) == "space", "and", null
-      )
+      list-separator($optionNames) == "comma",
+      ",",
+      if(list-separator($optionNames) == "space", "and", null)
     );
     $result: $result + _prefix($separator, $i);
 
     @if type-of($option) == "list" {
-      $result: $result + _getOptionMedia($option, $positive) ;
-    }
-    @else {
-      $result: $result +  _not(_prefMedia($option), $positive);
+      $result: $result + _getOptionMedia($option, $positive);
+    } @else {
+      $result: $result + _not(_prefMedia($option), $positive);
     }
   }
   @return $result;
@@ -76,8 +74,7 @@
     @media #{_getOptionMedia($optionNames)} {
       @content;
     }
-  }
-  @else {
+  } @else {
     @supports #{_optionWrapper($optionNames)} {
       @content;
     }
@@ -89,8 +86,7 @@
     @media #{_getOptionMedia($optionNames, false)} {
       @content;
     }
-  }
-  @else {
+  } @else {
     @supports #{_optionWrapper($optionNames, false)} {
       @content;
     }

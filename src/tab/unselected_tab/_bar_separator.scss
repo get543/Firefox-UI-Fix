@@ -12,7 +12,8 @@
   /* Position */
   top: 50%;
   left: 0%;
-  transform: translateX(calc((var(--inline-tab-padding) - #{ $barMargin }) / 2)) translateY(calc(-50% + var(--tab-block-margin)));
+  transform: translateX(calc((var(--inline-tab-padding) - #{$barMargin}) / 2))
+    translateY(calc(-50% + var(--tab-block-margin)));
   z-index: 1;
 
   /* Bar shape */
@@ -42,7 +43,7 @@
     }
   }
   #TabsToolbar[brighttext] .tabbrowser-tab[busy] {
-    &[progress]:not([selected=true]) .tab-stack::before {
+    &[progress]:not([selected="true"]) .tab-stack::before {
       --uc-bar-separator-color: var(--lwt-tab-loading-fill-inactive, #84c1ff);
     }
   }

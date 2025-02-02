@@ -291,7 +291,8 @@
     .menu-nav > ul > li > ul,
     .menu-nav > ul > li > ul a,
     .menu-nav em,
-    .primary, .secondary,
+    .primary,
+    .secondary,
     .dashboard .listing .item {
       background: var(--in-content-page-background) !important;
       color: var(--in-content-page-color) !important;
@@ -313,17 +314,19 @@
     /* .developer-hub */
     #footer {
       background: linear-gradient(
-        to bottom,var(--in-content-page-background) 0,
+        to bottom,
+        var(--in-content-page-background) 0,
         var(--in-content-page-background) 123px,
         #0c99d5 123px,
         #0c99d5 200px,
         var(--in-content-page-background) 200px,
-        rgba(12,153,213,0) 400px
+        rgba(12, 153, 213, 0) 400px
       ) !important;
     }
 
     /* Text */
-    /* .developer-hub */ #homepage h2,
+    /* .developer-hub */
+    #homepage h2,
     /* .developer-hub */ header h2,
     .primary h2,
     h1,
@@ -340,7 +343,9 @@
     .two-up div {
       color: var(--in-content-page-color) !important;
     }
-    .item-actions h5, .item-actions > ul, .item-actions > ul > li,
+    .item-actions h5,
+    .item-actions > ul,
+    .item-actions > ul > li,
     .dashboard .listing .item .item-actions a,
     .edit-media-details,
     .devhub-form table th,
@@ -403,7 +408,8 @@
     }
 
     .highlight,
-    .listing-footer, .tab-wrapper .fm-control {
+    .listing-footer,
+    .tab-wrapper .fm-control {
       color: var(--in-content-page-color) !important;
       background: var(--in-content-box-info-background) !important;
     }
@@ -416,7 +422,7 @@
       rect {
         fill: var(--in-content-page-background) !important;
       }
-      text{
+      text {
         fill: var(--in-content-deemphasized-text) !important;
       }
       .highcharts-legend .highcharts-legend-item:hover text {
@@ -428,7 +434,7 @@
         stroke-linejoin: miter !important;
       }
       .highcharts-legend .highcharts-legend-item path[stroke="#CCC"] ~ text {
-        fill: #CCC !important;
+        fill: #ccc !important;
       }
     }
 
@@ -442,7 +448,8 @@
     ul.errorlist li span.tip {
       background-color: var(--in-content-box-info-background) !important;
     }
-    a.remove:hover, span.tip:hover {
+    a.remove:hover,
+    span.tip:hover {
       background-color: var(--in-content-primary-button-background-hover) !important;
     }
 
@@ -465,14 +472,17 @@
       border-top-color: var(--in-content-link-color) !important;
     }
 
-    install-note::after, .popup::after {
+    install-note::after,
+    .popup::after {
       border-bottom-color: var(--in-content-box-background) !important;
     }
-    .install-note::before, .popup::before {
+    .install-note::before,
+    .popup::before {
       border-bottom-color: grey !important;
     }
 
-    #refine-results, .other-categories,
+    #refine-results,
+    .other-categories,
     .versions .primary > .warning {
       border-color: transparent !important;
     }
@@ -534,7 +544,7 @@
     #addon-validator-suite .suite-summary {
       color: var(--in-content-deemphasized-text) !important;
       background: var(--in-content-button-background) !important;
-      border-top-color: var(--in-content-border-color) !important;;
+      border-top-color: var(--in-content-border-color) !important;
     }
     #addon-validator-suite .context {
       border-color: var(--in-content-box-border-color) !important;

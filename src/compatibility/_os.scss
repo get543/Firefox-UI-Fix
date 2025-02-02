@@ -1,8 +1,8 @@
 /*= Windows 10 - Top border of accent color at ESR #358 ======================*/
 @include OS($win10) {
-  :root[sizemode=normal]:is([tabsintitlebar], [customtitlebar]) {
+  :root[sizemode="normal"]:is([tabsintitlebar], [customtitlebar]) {
     #navigator-toolbox {
-      border-top: .5px solid rgb(47, 47, 47) !important;
+      border-top: 0.5px solid rgb(47, 47, 47) !important;
     }
     &:-moz-window-inactive #navigator-toolbox {
       border-top-color: rgb(57, 57, 57) !important;
@@ -151,7 +151,8 @@
   @include OS($win10) {
     @include NativeMenuPopup {
       @include _os_menuEmulateActive(
-        #91c9f7, // color-mix(in srgb, -moz-menuhover 40%, transparent)
+        #91c9f7,
+        // color-mix(in srgb, -moz-menuhover 40%, transparent)
         transparent,
         color-mix(in srgb, currentColor 9%, transparent),
         transparent
@@ -203,7 +204,7 @@ $_os_linuxDefaultShadow: 0 0 4px rgba(128, 128, 142, 0.5);
       .tabbrowser-tab:is([visuallyselected], [multiselected])
       > .tab-stack
       > .tab-background {
-        @content;
+      @content;
     }
   }
 }
@@ -265,12 +266,12 @@ $_os_linuxDefaultShadow: 0 0 4px rgba(128, 128, 142, 0.5);
   @include WinClassic {
     :root:is([tabsintitlebar], [customtitlebar])[sizemode="normal"]:not(:-moz-lwtheme) #navigator-toolbox {
       appearance: auto !important;
-      -moz-default-appearance: -moz-window-titlebar !important;;
+      -moz-default-appearance: -moz-window-titlebar !important;
     }
 
     :root:is([tabsintitlebar], [customtitlebar])[sizemode="maximized"]:not(:-moz-lwtheme) #navigator-toolbox {
-      appearance: auto !important;;
-      -moz-default-appearance:-moz-window-titlebar !important;;
+      appearance: auto !important;
+      -moz-default-appearance: -moz-window-titlebar !important;
     }
 
     :root:is([tabsintitlebar], [customtitlebar]):not(:-moz-lwtheme) #tabbrowser-arrowscrollbox {
@@ -280,9 +281,13 @@ $_os_linuxDefaultShadow: 0 0 4px rgba(128, 128, 142, 0.5);
     :root:is([tabsintitlebar], [customtitlebar])[sizemode="normal"] #navigator-toolbox:-moz-lwtheme {
       background-image: linear-gradient(
         to bottom,
-        ThreeDLightShadow 0, ThreeDLightShadow 1px,
-        ThreeDHighlight 1px, ThreeDHighlight 2px,
-        ActiveBorder 2px, ActiveBorder 4px, transparent 4px
+        ThreeDLightShadow 0,
+        ThreeDLightShadow 1px,
+        ThreeDHighlight 1px,
+        ThreeDHighlight 2px,
+        ActiveBorder 2px,
+        ActiveBorder 4px,
+        transparent 4px
       ) !important;
     }
   }

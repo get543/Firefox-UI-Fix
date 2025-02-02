@@ -1,5 +1,5 @@
 $iconSelector: "> .menu-iconic-left > .menu-iconic-icon";
-$checkedIconSelector: "> .menu-iconic-left[checked=\"true\"] > .menu-iconic-icon";
+$checkedIconSelector: '> .menu-iconic-left[checked="true"] > .menu-iconic-icon';
 
 /*- Radio Button -------------------------------------------------------------*/
 menuitem[type="radio"] {

@@ -145,7 +145,7 @@
   .icon-button > button,
   .search-button,
   img:is(.pencil, .thumbsup, .syncing.icon),
-  #step-indicator li:not([status="done"])::before, {
+  #step-indicator li:not([status="done"])::before {
     filter: invert(95%) !important;
   }
   button.markup-toolbar-button {

@@ -40,12 +40,12 @@
   .tabbrowser-tab {
     &:not([collapsed]) {
       /* -moz-box-flex may be caused #tabbrowser-tabs[closebuttons] */
-      transition: -moz-box-flex 0.2s var(--animation-easing-function),
-        flex 0.2s var(--animation-easing-function),
+      transition: -moz-box-flex 0.2s var(--animation-easing-function), flex 0.2s var(--animation-easing-function),
         margin-inline-start 0.2s var(--animation-easing-function), min-width 0.1s ease-out, max-width 0.1s ease-out !important;
     }
     &[pinned] {
-      transition: margin-inline-start 0.2s var(--animation-easing-function), min-width 0.1s ease-out, max-width 0.1s ease-out !important;
+      transition: margin-inline-start 0.2s var(--animation-easing-function), min-width 0.1s ease-out,
+        max-width 0.1s ease-out !important;
     }
   }
 
@@ -67,7 +67,8 @@
 #urlbar-background {
   transition: border-color 1s var(--animation-easing-function), background-color 0.5s var(--animation-easing-function) !important;
   &:hover {
-    transition: border-color 0.5s var(--animation-easing-function), background-color 0.5s var(--animation-easing-function) !important;
+    transition: border-color 0.5s var(--animation-easing-function),
+      background-color 0.5s var(--animation-easing-function) !important;
   }
 }
 #searchbar {
@@ -143,13 +144,11 @@ xul|search-textbox.tabsFilter,
 #navigator-toolbox {
   /* Full screen out */
   will-change: margin-top, background-color !important;
-  transition: $toolbox-transition-margin-top,
-              $toolbox-transition-background-color !important;
+  transition: $toolbox-transition-margin-top, $toolbox-transition-background-color !important;
   transform-origin: top;
 
   &:-moz-window-inactive {
-    transition: $toolbox-transition-margin-top,
-                $toolbox-transition-background-color-inactive !important;
+    transition: $toolbox-transition-margin-top, $toolbox-transition-background-color-inactive !important;
   }
 
   &[inFullscreen="true"] {
@@ -160,17 +159,15 @@ xul|search-textbox.tabsFilter,
 
     /* Full screen navbar not hover */
     // transition: margin-top 0.3s var(--animation-easing-function) 50ms;
-    transition: $toolbox-transition-margin-top-fullscreen,
-                $toolbox-transition-background-color !important;
+    transition: $toolbox-transition-margin-top-fullscreen, $toolbox-transition-background-color !important;
     &:-moz-window-inactive {
-      transition: $toolbox-transition-margin-top-fullscreen,
-                  $toolbox-transition-background-color-inactive !important;
+      transition: $toolbox-transition-margin-top-fullscreen, $toolbox-transition-background-color-inactive !important;
     }
 
     &:hover {
-    // Full screen navbar hover
-    // transition-duration: 1.5s; // Not works, because !important
-    // transition-delay: 0.5s;
+      // Full screen navbar hover
+      // transition-duration: 1.5s; // Not works, because !important
+      // transition-delay: 0.5s;
       margin-top: 0 !important;
     }
   }

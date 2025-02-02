@@ -18,7 +18,7 @@
 
 #urlbar[breakout] {
   :root:not([uidensity="compact"]) & {
-    height:  calc(var(--urlbar-height) - 2px) !important;
+    height: calc(var(--urlbar-height) - 2px) !important;
     &[breakout-extend],
     &[breakout-extend-disabled][open] {
       height: auto !important;

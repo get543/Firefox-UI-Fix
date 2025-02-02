@@ -18,12 +18,12 @@ $_searchBarButton: 32px;
   }
 }
 @mixin _urlViewCompactInit() {
-  --urlbarView-favicon-width: #{ $_urlViewIcon }; /* Original: 16px */
-  --uc-urlView-typeIcon-size: #{ $_urlViewTypeIcon };
-  --uc-urlView-icon-size-differ: #{ $_urlViewIcon - $_urlViewTypeIcon };
+  --urlbarView-favicon-width: #{$_urlViewIcon}; /* Original: 16px */
+  --uc-urlView-typeIcon-size: #{$_urlViewTypeIcon};
+  --uc-urlView-icon-size-differ: #{$_urlViewIcon - $_urlViewTypeIcon};
 
-  --uc-searchBar-icon-size: #{ $_searchBarIcon };
-  --uc-searchBar-button-size: #{ $_searchBarButton };
+  --uc-searchBar-icon-size: #{$_searchBarIcon};
+  --uc-searchBar-button-size: #{$_searchBarButton};
 }
 
 $_urlRowPadding: 2px; //.urlbarView-row
@@ -35,8 +35,8 @@ $_urlRowPadding: 2px; //.urlbarView-row
   }
 }
 @mixin _urlViewTouchInit() {
-  --uc-urlView-row-padding: #{ $_URL_ROW_INNER_PADDING + $_urlRowPadding };
-  --uc-urlView-row-bottom: #{ $_urlRowPadding };
+  --uc-urlView-row-padding: #{$_URL_ROW_INNER_PADDING + $_urlRowPadding};
+  --uc-urlView-row-bottom: #{$_urlRowPadding};
 }
 
 //------------------------------------------------------------------------------
@@ -85,7 +85,7 @@ $_urlRowPadding: 2px; //.urlbarView-row
 .urlbarView-row {
   &:not([type="tip"], [type="dynamic"]) {
     position: relative;
-    min-height: #{ calc(var(--urlbarView-favicon-width) + var(--uc-urlView-row-padding)) } !important;
+    min-height: #{calc(var(--urlbarView-favicon-width) + var(--uc-urlView-row-padding))} !important;
 
     .urlbarView-row-inner {
       height: var(--urlbarView-favicon-width) !important;
@@ -97,12 +97,16 @@ $_urlRowPadding: 2px; //.urlbarView-row
       transform: translateY(-50%);
     }
     .urlbarView-title {
-      padding-inline-start: calc(var(--urlbarView-item-inline-padding) + var(--identity-box-margin-inline) + var(--urlbarView-favicon-width)) !important;
+      padding-inline-start: calc(
+        var(--urlbarView-item-inline-padding) + var(--identity-box-margin-inline) + var(--urlbarView-favicon-width)
+      ) !important;
     }
     .urlbarView-type-icon {
       width: var(--uc-urlView-typeIcon-size) !important;
       height: var(--uc-urlView-typeIcon-size) !important;
-      margin-inline-start: calc(var(--uc-urlView-icon-size-differ) + var(--urlbarView-item-inline-padding)) !important; /* Original: 8px */
+      margin-inline-start: calc(
+        var(--uc-urlView-icon-size-differ) + var(--urlbarView-item-inline-padding)
+      ) !important; /* Original: 8px */
       bottom: var(--uc-urlView-row-bottom);
     }
   }

@@ -275,8 +275,7 @@ menuitem.searchbar-clear-history {
 .manage-languages-menuitem {
   --menuitem-image: url("chrome://global/skin/icons/settings.svg");
 }
-#full-page-translations-panel-settings-menupopup >
-  menuitem[data-l10n-id="translations-panel-settings-about2"] {
+#full-page-translations-panel-settings-menupopup > menuitem[data-l10n-id="translations-panel-settings-about2"] {
   --menuitem-image: url("chrome://global/skin/icons/info.svg");
 }
 

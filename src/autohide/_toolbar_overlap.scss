@@ -7,32 +7,27 @@
   @include Animate {
     @include Option("userChrome.decoration.animate") {
       will-change: margin-top, margin-bottom, background-color !important;
-      transition: $toolbox-transition-margin-top,
-                  $toolbox-transition-margin-bottom,
-                  $toolbox-transition-background-color !important;
+      transition: $toolbox-transition-margin-top, $toolbox-transition-margin-bottom,
+        $toolbox-transition-background-color !important;
       &:-moz-window-inactive {
-        transition: $toolbox-transition-margin-top,
-                    $toolbox-transition-margin-bottom,
-                    $toolbox-transition-background-color-inactive !important;
+        transition: $toolbox-transition-margin-top, $toolbox-transition-margin-bottom,
+          $toolbox-transition-background-color-inactive !important;
       }
       &:is(:hover, :focus-within) {
         transition-delay: 0s, 0s, 0.2s !important;
       }
 
       &[inFullscreen="true"] {
-        transition: $toolbox-transition-margin-top-fullscreen,
-                    $toolbox-transition-margin-bottom,
-                    $toolbox-transition-background-color !important;
+        transition: $toolbox-transition-margin-top-fullscreen, $toolbox-transition-margin-bottom,
+          $toolbox-transition-background-color !important;
         &:-moz-window-inactive {
-          transition: $toolbox-transition-margin-top-fullscreen,
-                      $toolbox-transition-margin-bottom,
-                      $toolbox-transition-background-color-inactive !important;
+          transition: $toolbox-transition-margin-top-fullscreen, $toolbox-transition-margin-bottom,
+            $toolbox-transition-background-color-inactive !important;
         }
       }
     }
     @include NotOption("userChrome.decoration.animate") {
-      transition: $toolbox-transition-margin-bottom,
-                  $toolbox-transition-background-color !important;
+      transition: $toolbox-transition-margin-bottom, $toolbox-transition-background-color !important;
 
       &:is(:hover, :focus-within) {
         transition-delay: 0s !important;

@@ -2,10 +2,7 @@
 
 //-- Mixin ---------------------------------------------------------------------
 $_placesPopupSet: "menupopup:is(#placesContext, #placesColumnsContext, #downloadsContextMenu)";
-$_placesPopupSetMenus: selector.nest(
-  $_placesPopupSet,
-  "#{$_iconMenuitem}, #{$_iconMenu}"
-);
+$_placesPopupSetMenus: selector.nest($_placesPopupSet, "#{$_iconMenuitem}, #{$_iconMenu}");
 
 @mixin _library_contextMenu {
   #{$_placesPopupSetMenus},

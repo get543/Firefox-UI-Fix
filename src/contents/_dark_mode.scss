@@ -7,7 +7,7 @@
     @include moz-document(unobservable-document) {
       @include moz-document(regexp "^(?!.*\\.pdf\\?n).*") {
         #outerContainer {
-          --sidebaritem-bg-color: #38383D;
+          --sidebaritem-bg-color: #38383d;
           --uc-pdf-dark-filter: grayscale(10%) invert(90%);
         }
 

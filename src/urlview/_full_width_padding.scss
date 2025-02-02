@@ -5,7 +5,7 @@ $_borderSize: 2px;
   --uc-urlView-full-width-padding: var(--uc-urlView-padding-double);
 
   @include NotOption("userChrome.urlView.as_commandbar") {
-  --uc-urlView-full-width-padding: var(--uc-urlView-padding);
+    --uc-urlView-full-width-padding: var(--uc-urlView-padding);
     width: 100% !important;
   }
 }

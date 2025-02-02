@@ -20,7 +20,8 @@
         }
       }
       @include expect {
-        @-moz-document #{unobservable-document()} { // Invalid function name.
+        @-moz-document #{unobservable-document()} {
+          // Invalid function name.
           @include example;
         }
         @-moz-document url("about:downloads") {
@@ -45,10 +46,7 @@
         ) {
           @include example;
         }
-        @include moz-document(
-          url-prefix "about:cache",
-          url-prefix "about:checkerboard"
-        ) {
+        @include moz-document(url-prefix "about:cache", url-prefix "about:checkerboard") {
           @include example;
         }
       }

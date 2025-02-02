@@ -3,7 +3,7 @@ description: Create a report for install
 labels: ["Issue::Bug", "install"]
 
 body:
-# == Bug Infos =================================================================
+  # == Bug Infos =================================================================
   - type: markdown
     id: bug-infos
     attributes:
@@ -35,7 +35,7 @@ body:
     validations:
       required: false
 
-# == Environments ===============================================================
+  # == Environments ===============================================================
   - type: markdown
     id: environments
     attributes:

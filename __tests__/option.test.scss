@@ -57,10 +57,17 @@
         @include option.Option("userChrome.tab.photon" "userChrome.padding.photon", "userChrome.tab.box_shadow") {
           @include example;
         }
-        @include option.Option("userChrome.tab.photon" "userChrome.padding.photon", "userChrome.tab.box_shadow", "userChrome.icon.panel_full") {
+        @include option.Option(
+          "userChrome.tab.photon" "userChrome.padding.photon",
+          "userChrome.tab.box_shadow",
+          "userChrome.icon.panel_full"
+        ) {
           @include example;
         }
-        @include option.Option("userChrome.tab.photon" "userChrome.padding.photon", "userChrome.tab.box_shadow" "userChrome.icon.panel_full") {
+        @include option.Option(
+          "userChrome.tab.photon" "userChrome.padding.photon",
+          "userChrome.tab.box_shadow" "userChrome.icon.panel_full"
+        ) {
           @include example;
         }
       }
@@ -68,10 +75,13 @@
         @supports (-moz-bool-pref("userChrome.tab.photon") and -moz-bool-pref("userChrome.padding.photon")) or -moz-bool-pref("userChrome.tab.box_shadow") {
           @include example;
         }
-        @supports (-moz-bool-pref("userChrome.tab.photon") and -moz-bool-pref("userChrome.padding.photon")) or -moz-bool-pref("userChrome.tab.box_shadow") or -moz-bool-pref("userChrome.icon.panel_full") {
+        @supports (-moz-bool-pref("userChrome.tab.photon") and -moz-bool-pref("userChrome.padding.photon")) or -moz-bool-pref(
+            "userChrome.tab.box_shadow"
+          ) or -moz-bool-pref("userChrome.icon.panel_full") {
           @include example;
         }
-        @supports (-moz-bool-pref("userChrome.tab.photon") and -moz-bool-pref("userChrome.padding.photon")) or (-moz-bool-pref("userChrome.tab.box_shadow") and -moz-bool-pref("userChrome.icon.panel_full")) {
+        @supports (-moz-bool-pref("userChrome.tab.photon") and -moz-bool-pref("userChrome.padding.photon")) or
+          (-moz-bool-pref("userChrome.tab.box_shadow") and -moz-bool-pref("userChrome.icon.panel_full")) {
           @include example;
         }
       }
@@ -134,10 +144,17 @@
         @include option.Option("userChrome.tab.photon" "userChrome.padding.photon", "userChrome.tab.box_shadow") {
           @include example;
         }
-        @include option.Option("userChrome.tab.photon" "userChrome.padding.photon", "userChrome.tab.box_shadow", "userChrome.icon.panel_full") {
+        @include option.Option(
+          "userChrome.tab.photon" "userChrome.padding.photon",
+          "userChrome.tab.box_shadow",
+          "userChrome.icon.panel_full"
+        ) {
           @include example;
         }
-        @include option.Option("userChrome.tab.photon" "userChrome.padding.photon", "userChrome.tab.box_shadow" "userChrome.icon.panel_full") {
+        @include option.Option(
+          "userChrome.tab.photon" "userChrome.padding.photon",
+          "userChrome.tab.box_shadow" "userChrome.icon.panel_full"
+        ) {
           @include example;
         }
       }
@@ -145,10 +162,13 @@
         @supports (-moz-bool-pref("userChrome.tab.photon") and -moz-bool-pref("userChrome.padding.photon")) or -moz-bool-pref("userChrome.tab.box_shadow") {
           @include example;
         }
-        @supports (-moz-bool-pref("userChrome.tab.photon") and -moz-bool-pref("userChrome.padding.photon")) or -moz-bool-pref("userChrome.tab.box_shadow") or -moz-bool-pref("userChrome.icon.panel_full") {
+        @supports (-moz-bool-pref("userChrome.tab.photon") and -moz-bool-pref("userChrome.padding.photon")) or -moz-bool-pref(
+            "userChrome.tab.box_shadow"
+          ) or -moz-bool-pref("userChrome.icon.panel_full") {
           @include example;
         }
-        @supports (-moz-bool-pref("userChrome.tab.photon") and -moz-bool-pref("userChrome.padding.photon")) or (-moz-bool-pref("userChrome.tab.box_shadow") and -moz-bool-pref("userChrome.icon.panel_full")) {
+        @supports (-moz-bool-pref("userChrome.tab.photon") and -moz-bool-pref("userChrome.padding.photon")) or
+          (-moz-bool-pref("userChrome.tab.box_shadow") and -moz-bool-pref("userChrome.icon.panel_full")) {
           @include example;
         }
       }
@@ -211,21 +231,32 @@
         @include option.Option("userChrome.tab.photon" "userChrome.padding.photon", "userChrome.tab.box_shadow") {
           @include example;
         }
-        @include option.Option("userChrome.tab.photon" "userChrome.padding.photon", "userChrome.tab.box_shadow", "userChrome.icon.panel_full") {
+        @include option.Option(
+          "userChrome.tab.photon" "userChrome.padding.photon",
+          "userChrome.tab.box_shadow",
+          "userChrome.icon.panel_full"
+        ) {
           @include example;
         }
-        @include option.Option("userChrome.tab.photon" "userChrome.padding.photon", "userChrome.tab.box_shadow" "userChrome.icon.panel_full") {
+        @include option.Option(
+          "userChrome.tab.photon" "userChrome.padding.photon",
+          "userChrome.tab.box_shadow" "userChrome.icon.panel_full"
+        ) {
           @include example;
         }
       }
       @include expect {
-        @media (-moz-bool-pref: '"userChrome.tab.photon"') and (-moz-bool-pref: '"userChrome.padding.photon"'), (-moz-bool-pref: '"userChrome.tab.box_shadow"') {
+        @media (-moz-bool-pref: '"userChrome.tab.photon"') and (-moz-bool-pref: '"userChrome.padding.photon"'),
+          (-moz-bool-pref: '"userChrome.tab.box_shadow"') {
           @include example;
         }
-        @media (-moz-bool-pref: '"userChrome.tab.photon"') and (-moz-bool-pref: '"userChrome.padding.photon"'), (-moz-bool-pref: '"userChrome.tab.box_shadow"'), (-moz-bool-pref: '"userChrome.icon.panel_full"') {
+        @media (-moz-bool-pref: '"userChrome.tab.photon"') and (-moz-bool-pref: '"userChrome.padding.photon"'),
+          (-moz-bool-pref: '"userChrome.tab.box_shadow"'),
+          (-moz-bool-pref: '"userChrome.icon.panel_full"') {
           @include example;
         }
-        @media (-moz-bool-pref: '"userChrome.tab.photon"') and (-moz-bool-pref: '"userChrome.padding.photon"'), (-moz-bool-pref: '"userChrome.tab.box_shadow"') and (-moz-bool-pref: '"userChrome.icon.panel_full"') {
+        @media (-moz-bool-pref: '"userChrome.tab.photon"') and (-moz-bool-pref: '"userChrome.padding.photon"'),
+          (-moz-bool-pref: '"userChrome.tab.box_shadow"') and (-moz-bool-pref: '"userChrome.icon.panel_full"') {
           @include example;
         }
       }
@@ -288,21 +319,31 @@
         @include option.NotOption("userChrome.tab.photon" "userChrome.padding.photon", "userChrome.tab.box_shadow") {
           @include example;
         }
-        @include option.NotOption("userChrome.tab.photon" "userChrome.padding.photon", "userChrome.tab.box_shadow", "userChrome.icon.panel_full") {
+        @include option.NotOption(
+          "userChrome.tab.photon" "userChrome.padding.photon",
+          "userChrome.tab.box_shadow",
+          "userChrome.icon.panel_full"
+        ) {
           @include example;
         }
-        @include option.NotOption("userChrome.tab.photon" "userChrome.padding.photon", "userChrome.tab.box_shadow" "userChrome.icon.panel_full") {
+        @include option.NotOption(
+          "userChrome.tab.photon" "userChrome.padding.photon",
+          "userChrome.tab.box_shadow" "userChrome.icon.panel_full"
+        ) {
           @include example;
         }
       }
       @include expect {
-        @supports ((not -moz-bool-pref("userChrome.tab.photon")) and (not -moz-bool-pref("userChrome.padding.photon"))) or (not -moz-bool-pref("userChrome.tab.box_shadow")) {
+        @supports ((not -moz-bool-pref("userChrome.tab.photon")) and (not -moz-bool-pref("userChrome.padding.photon")))
+          or (not -moz-bool-pref("userChrome.tab.box_shadow")) {
           @include example;
         }
-        @supports ((not -moz-bool-pref("userChrome.tab.photon")) and (not -moz-bool-pref("userChrome.padding.photon"))) or (not -moz-bool-pref("userChrome.tab.box_shadow")) or (not -moz-bool-pref("userChrome.icon.panel_full")) {
+        @supports ((not -moz-bool-pref("userChrome.tab.photon")) and (not -moz-bool-pref("userChrome.padding.photon")))
+          or (not -moz-bool-pref("userChrome.tab.box_shadow")) or (not -moz-bool-pref("userChrome.icon.panel_full")) {
           @include example;
         }
-        @supports ((not -moz-bool-pref("userChrome.tab.photon")) and (not -moz-bool-pref("userChrome.padding.photon"))) or ((not -moz-bool-pref("userChrome.tab.box_shadow")) and (not -moz-bool-pref("userChrome.icon.panel_full"))) {
+        @supports ((not -moz-bool-pref("userChrome.tab.photon")) and (not -moz-bool-pref("userChrome.padding.photon")))
+          or ((not -moz-bool-pref("userChrome.tab.box_shadow")) and (not -moz-bool-pref("userChrome.icon.panel_full"))) {
           @include example;
         }
       }
@@ -350,21 +391,31 @@
         @include option.NotOption("userChrome.tab.photon" "userChrome.padding.photon", "userChrome.tab.box_shadow") {
           @include example;
         }
-        @include option.NotOption("userChrome.tab.photon" "userChrome.padding.photon", "userChrome.tab.box_shadow", "userChrome.icon.panel_full") {
+        @include option.NotOption(
+          "userChrome.tab.photon" "userChrome.padding.photon",
+          "userChrome.tab.box_shadow",
+          "userChrome.icon.panel_full"
+        ) {
           @include example;
         }
-        @include option.NotOption("userChrome.tab.photon" "userChrome.padding.photon", "userChrome.tab.box_shadow" "userChrome.icon.panel_full") {
+        @include option.NotOption(
+          "userChrome.tab.photon" "userChrome.padding.photon",
+          "userChrome.tab.box_shadow" "userChrome.icon.panel_full"
+        ) {
           @include example;
         }
       }
       @include expect {
-        @supports ((not -moz-bool-pref("userChrome.tab.photon")) and (not -moz-bool-pref("userChrome.padding.photon"))) or (not -moz-bool-pref("userChrome.tab.box_shadow")) {
+        @supports ((not -moz-bool-pref("userChrome.tab.photon")) and (not -moz-bool-pref("userChrome.padding.photon")))
+          or (not -moz-bool-pref("userChrome.tab.box_shadow")) {
           @include example;
         }
-        @supports ((not -moz-bool-pref("userChrome.tab.photon")) and (not -moz-bool-pref("userChrome.padding.photon"))) or (not -moz-bool-pref("userChrome.tab.box_shadow")) or (not -moz-bool-pref("userChrome.icon.panel_full")) {
+        @supports ((not -moz-bool-pref("userChrome.tab.photon")) and (not -moz-bool-pref("userChrome.padding.photon")))
+          or (not -moz-bool-pref("userChrome.tab.box_shadow")) or (not -moz-bool-pref("userChrome.icon.panel_full")) {
           @include example;
         }
-        @supports ((not -moz-bool-pref("userChrome.tab.photon")) and (not -moz-bool-pref("userChrome.padding.photon"))) or ((not -moz-bool-pref("userChrome.tab.box_shadow")) and (not -moz-bool-pref("userChrome.icon.panel_full"))) {
+        @supports ((not -moz-bool-pref("userChrome.tab.photon")) and (not -moz-bool-pref("userChrome.padding.photon")))
+          or ((not -moz-bool-pref("userChrome.tab.box_shadow")) and (not -moz-bool-pref("userChrome.icon.panel_full"))) {
           @include example;
         }
       }
@@ -399,7 +450,8 @@
         }
       }
       @include expect {
-        @media (not (-moz-bool-pref: '"userChrome.tab.photon"')), (not (-moz-bool-pref: '"userChrome.padding.photon"')) {
+        @media (not (-moz-bool-pref: '"userChrome.tab.photon"')),
+          (not (-moz-bool-pref: '"userChrome.padding.photon"')) {
           @include example;
         }
       }
@@ -412,21 +464,32 @@
         @include option.NotOption("userChrome.tab.photon" "userChrome.padding.photon", "userChrome.tab.box_shadow") {
           @include example;
         }
-        @include option.NotOption("userChrome.tab.photon" "userChrome.padding.photon", "userChrome.tab.box_shadow", "userChrome.icon.panel_full") {
+        @include option.NotOption(
+          "userChrome.tab.photon" "userChrome.padding.photon",
+          "userChrome.tab.box_shadow",
+          "userChrome.icon.panel_full"
+        ) {
           @include example;
         }
-        @include option.NotOption("userChrome.tab.photon" "userChrome.padding.photon", "userChrome.tab.box_shadow" "userChrome.icon.panel_full") {
+        @include option.NotOption(
+          "userChrome.tab.photon" "userChrome.padding.photon",
+          "userChrome.tab.box_shadow" "userChrome.icon.panel_full"
+        ) {
           @include example;
         }
       }
       @include expect {
-        @media (not (-moz-bool-pref: '"userChrome.tab.photon"')) and (not (-moz-bool-pref: '"userChrome.padding.photon"')), (not (-moz-bool-pref: '"userChrome.tab.box_shadow"')) {
+        @media (not (-moz-bool-pref: '"userChrome.tab.photon"')) and (not (-moz-bool-pref: '"userChrome.padding.photon"')),
+          (not (-moz-bool-pref: '"userChrome.tab.box_shadow"')) {
           @include example;
         }
-        @media (not (-moz-bool-pref: '"userChrome.tab.photon"')) and (not (-moz-bool-pref: '"userChrome.padding.photon"')), (not (-moz-bool-pref: '"userChrome.tab.box_shadow"')), (not (-moz-bool-pref: '"userChrome.icon.panel_full"')) {
+        @media (not (-moz-bool-pref: '"userChrome.tab.photon"')) and (not (-moz-bool-pref: '"userChrome.padding.photon"')),
+          (not (-moz-bool-pref: '"userChrome.tab.box_shadow"')),
+          (not (-moz-bool-pref: '"userChrome.icon.panel_full"')) {
           @include example;
         }
-        @media (not (-moz-bool-pref: '"userChrome.tab.photon"')) and (not (-moz-bool-pref: '"userChrome.padding.photon"')), (not (-moz-bool-pref: '"userChrome.tab.box_shadow"')) and (not (-moz-bool-pref: '"userChrome.icon.panel_full"')) {
+        @media (not (-moz-bool-pref: '"userChrome.tab.photon"')) and (not (-moz-bool-pref: '"userChrome.padding.photon"')),
+          (not (-moz-bool-pref: '"userChrome.tab.box_shadow"')) and (not (-moz-bool-pref: '"userChrome.icon.panel_full"')) {
           @include example;
         }
       }

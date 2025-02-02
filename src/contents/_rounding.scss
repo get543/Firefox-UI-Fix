@@ -9,10 +9,7 @@
     border-radius: 0 !important;
   }
 
-  @include moz-document(
-    url-prefix "about:",
-    regexp "^chrome:\/\/\\w+\/content\/.*\.xhtml$"
-  ) {
+  @include moz-document(url-prefix "about:", regexp "^chrome:\/\/\\w+\/content\/.*\.xhtml$") {
     button:not(.toggle-button),
     .close-icon,
     .action-icon::before,
@@ -67,10 +64,7 @@
 }
 
 @include Option("userChrome.rounding.square_checklabel") {
-  @include moz-document(
-    url-prefix "about:",
-    regexp "^chrome:\/\/\\w+\/content\/.*\.xhtml$"
-  ) {
+  @include moz-document(url-prefix "about:", regexp "^chrome:\/\/\\w+\/content\/.*\.xhtml$") {
     input[type="checkbox"]:not(.toggle-button),
     .checkbox-check {
       border-radius: 0 !important;
@@ -79,11 +73,16 @@
 }
 
 @include Option("userChrome.rounding.square_field") {
-  @include moz-document(
-    url-prefix "about:",
-    regexp "^chrome:\/\/\\w+\/content\/.*\.xhtml$"
-  ) {
-    input:is([type="color"], [type="email"], [type="tel"], [type="text"], [type="password"], [type="url"], [type="number"]),
+  @include moz-document(url-prefix "about:", regexp "^chrome:\/\/\\w+\/content\/.*\.xhtml$") {
+    input:is(
+        [type="color"],
+        [type="email"],
+        [type="tel"],
+        [type="text"],
+        [type="password"],
+        [type="url"],
+        [type="number"]
+      ),
     textarea,
     select,
     menulist,
@@ -157,10 +156,7 @@
 }
 
 @include Option("userChrome.rounding.square_infobox") {
-  @include moz-document(
-    url-prefix "about:",
-    regexp "^chrome:\/\/\\w+\/content\/.*\.xhtml$"
-  ) {
+  @include moz-document(url-prefix "about:", regexp "^chrome:\/\/\\w+\/content\/.*\.xhtml$") {
     /*
      * .container is inside shadow DOM,
      * and it does not have any other classes,

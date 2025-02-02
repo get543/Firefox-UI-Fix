@@ -12,7 +12,7 @@
 }
 
 #nav-bar {
-  --uc-navbar-double-block: calc(2 *  var(--uc-navbar-block, 0px));
+  --uc-navbar-double-block: calc(2 * var(--uc-navbar-block, 0px));
   height: calc(var(--uc-tabbar-height) - var(--uc-navbar-double-block)) !important;
   margin-top: calc(var(--uc-tabbar-hide-height) + var(--uc-navbar-double-block)) !important;
   margin-bottom: var(--uc-navbar-block, 0px) !important;
@@ -77,7 +77,9 @@
 #urlbar-container {
   // https://github.com/mozilla/gecko-dev/commit/f30aeeee449c753d7494c788cae58dae7e1a92e5
   // https://github.com/mozilla/gecko-dev/commit/42a66e80d97bc07b25be913c02fd004ee9c7ca1a
-  min-width: calc(var(--uc-oneliner-urlbar-base-width, 50px) + 24px + 2 * var(--toolbarbutton-inner-padding)) !important; // Original: calc(350px + 24px + 2 * var(--toolbarbutton-inner-padding))
+  min-width: calc(
+    var(--uc-oneliner-urlbar-base-width, 50px) + 24px + 2 * var(--toolbarbutton-inner-padding)
+  ) !important; // Original: calc(350px + 24px + 2 * var(--toolbarbutton-inner-padding))
 }
 #urlbar[breakout][breakout-extend] {
   min-width: calc(310px + 2 * (24px + 2 * var(--toolbarbutton-inner-padding))) !important;

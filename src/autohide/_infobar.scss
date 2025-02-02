@@ -1,7 +1,9 @@
 #tab-notification-deck:not([customizing]) > .notificationbox-stack {
   $infobarFixedHeight: 13px + ((1px + 5px) * 2); // button height + (button border + [button.small-button padding]) * 2
   // fixedHeight + (button margin * 2) + messagebar margin
-  --infobar-height: calc(#{ $infobarFixedHeight } + (var(--infobar-button-vertical-margin, 4px) * 2) + var(--infobar-message-vertical-margin, 8px));
+  --infobar-height: calc(
+    #{$infobarFixedHeight} + (var(--infobar-button-vertical-margin, 4px) * 2) + var(--infobar-message-vertical-margin, 8px)
+  );
 }
 #tab-notification-deck:not([customizing]) > .notificationbox-stack[slot="selected"] > notification-message {
   --infobar-message-margin: 0 4px calc(-1 * var(--infobar-height));
@@ -9,7 +11,10 @@
   will-change: margin-bottom, opacity;
 }
 
-#navigator-toolbox:is(:hover, :focus-within) #tab-notification-deck:not([customizing]) > .notificationbox-stack[slot="selected"] > notification-message {
+#navigator-toolbox:is(:hover, :focus-within)
+  #tab-notification-deck:not([customizing])
+  > .notificationbox-stack[slot="selected"]
+  > notification-message {
   --infobar-message-margin: 0 4px var(--infobar-message-vertical-margin, 8px);
   opacity: 1;
 }
@@ -22,11 +27,15 @@
 
 @include Animate {
   #tab-notification-deck:not([customizing]) > .notificationbox-stack[slot="selected"] > notification-message {
-    transition: margin-bottom var(--uc-autohide-toolbar-speed) var(--animation-easing-function) var(--uc-autohide-toolbar-delay),
-                opacity var(--uc-autohide-toolbar-speed) var(--animation-easing-function) var(--uc-autohide-toolbar-delay),
-                var(--ext-theme-background-transition) !important;
+    transition: margin-bottom var(--uc-autohide-toolbar-speed) var(--animation-easing-function)
+        var(--uc-autohide-toolbar-delay),
+      opacity var(--uc-autohide-toolbar-speed) var(--animation-easing-function) var(--uc-autohide-toolbar-delay),
+      var(--ext-theme-background-transition) !important;
   }
-  #navigator-toolbox:is(:hover, :focus-within) #tab-notification-deck:not([customizing]) > .notificationbox-stack[slot="selected"] > notification-message {
+  #navigator-toolbox:is(:hover, :focus-within)
+    #tab-notification-deck:not([customizing])
+    > .notificationbox-stack[slot="selected"]
+    > notification-message {
     transition-delay: 0s !important;
   }
 }

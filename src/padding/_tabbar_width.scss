@@ -97,7 +97,8 @@
 /* neighbouring tabs should "pinch" together */
 :root[customizing="true"] #tabbrowser-arrowscrollbox-periphery,
 #tabbrowser-tabs:not([hasadjacentnewtabbutton]):not([overflow="true"])
-  > #tabbrowser-arrowscrollbox > #tabbrowser-arrowscrollbox-periphery {
+  > #tabbrowser-arrowscrollbox
+  > #tabbrowser-arrowscrollbox-periphery {
   min-width: 3px; // With Panorama Tab Groups #643 #846
 }
 @include NotOption("userChrome.tab.photon_like_padding") {

@@ -10,21 +10,17 @@
 
 // Set Colors
 @function frameTransparent($per: 60%, $transparent: transparent) {
-  @return color-mix(
-    in srgb,
-    var(--lwt-accent-color, Window) $per,
-    $transparent
-  );
+  @return color-mix(in srgb, var(--lwt-accent-color, Window) $per, $transparent);
 }
 
 #titlebar,
 #toolbar-menubar,
 #TabsToolbar {
-  --uc-frame-element-background: #{ frameTransparent() };
-  --toolbarbutton-hover-background: #{ frameTransparent(85%) };
+  --uc-frame-element-background: #{frameTransparent()};
+  --toolbarbutton-hover-background: #{frameTransparent(85%)};
 
   @include Dark {
-    --toolbarbutton-hover-background: #{ frameTransparent(40%, rgba(255, 255, 255, 0.25)) };
+    --toolbarbutton-hover-background: #{frameTransparent(40%, rgba(255, 255, 255, 0.25))};
   }
 }
 
@@ -50,17 +46,15 @@
 #TabsToolbar {
   --toolbarseparator-color: transparent;
 
-  .tabbrowser-tab
-  > .tab-stack
-  > .tab-background:not([selected], [multiselected]) {
+  .tabbrowser-tab > .tab-stack > .tab-background:not([selected], [multiselected]) {
     background-color: var(--uc-frame-element-background);
   }
 
   #firefox-view-button:hover:not([open]) > .toolbarbutton-icon,
-  .tabbrowser-tab:hover
-  > .tab-stack
-  > .tab-background:not([selected], [multiselected]) {
-    background-color: var(--toolbarbutton-hover-background) !important; /* Original: color-mix(in srgb, currentColor 11%, transparent) */
+  .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected], [multiselected]) {
+    background-color: var(
+      --toolbarbutton-hover-background
+    ) !important; /* Original: color-mix(in srgb, currentColor 11%, transparent) */
   }
 }
 

@@ -44,13 +44,16 @@
 @include Animate {
   #sidebar-header,
   #sidebar {
-    transition: min-width var(--uc-autohide-sidebar-speed) var(--animation-easing-function) var(--uc-autohide-sidebar-delay) !important;
+    transition: min-width var(--uc-autohide-sidebar-speed) var(--animation-easing-function)
+      var(--uc-autohide-sidebar-delay) !important;
   }
 
   #sidebar-box:is(:hover, :focus-within),
   #sidebar-box:has(#sidebar-switcher-target.active) {
-    transition: margin-inline-start var(--uc-autohide-sidebar-speed) var(--animation-easing-function), opacity var(--uc-autohide-sidebar-speed) ease-in-out,
-                box-shadow var(--uc-autohide-sidebar-speed) var(--animation-easing-function) var(--uc-autohide-sidebar-speed), visibility 0s linear !important;
+    transition: margin-inline-start var(--uc-autohide-sidebar-speed) var(--animation-easing-function),
+      opacity var(--uc-autohide-sidebar-speed) ease-in-out,
+      box-shadow var(--uc-autohide-sidebar-speed) var(--animation-easing-function) var(--uc-autohide-sidebar-speed),
+      visibility 0s linear !important;
     > {
       #sidebar-header,
       #sidebar {
@@ -60,10 +63,11 @@
   }
 
   :root[inFullscreen="true"] #sidebar-box {
-    transition: padding-inline-start var(--uc-autohide-fullscreen-sidebar-speed) var(--animation-easing-function) var(--uc-autohide-sidebar-delay),
-                opacity var(--uc-autohide-fullscreen-sidebar-speed) ease-in-out,
-                box-shadow calc(var(--uc-autohide-fullscreen-sidebar-speed) + 0.05s) var(--animation-easing-function),
-                visibility 0s linear !important;
+    transition: padding-inline-start var(--uc-autohide-fullscreen-sidebar-speed) var(--animation-easing-function)
+        var(--uc-autohide-sidebar-delay),
+      opacity var(--uc-autohide-fullscreen-sidebar-speed) ease-in-out,
+      box-shadow calc(var(--uc-autohide-fullscreen-sidebar-speed) + 0.05s) var(--animation-easing-function),
+      visibility 0s linear !important;
 
     &:is(:hover, :focus-within),
     &:has(#sidebar-switcher-target.active) {

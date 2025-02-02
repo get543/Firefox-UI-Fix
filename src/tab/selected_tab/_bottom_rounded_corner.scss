@@ -43,7 +43,10 @@
             background-color: var(--tab-selected-bgcolor, var(--toolbar-bgcolor));
             background-image: var(--tab-selected-bgimage, var(--toolbar-bgimage));
          */
-          fill: var(--lwt-selected-tab-background-color, var(--tab-selected-bgcolor, var(--toolbar-bgcolor))) !important;
+          fill: var(
+            --lwt-selected-tab-background-color,
+            var(--tab-selected-bgcolor, var(--toolbar-bgcolor))
+          ) !important;
         }
       }
 
@@ -65,10 +68,7 @@
         }
 
         fill: var(--tab-selected-bgcolor, var(--toolbar-bgcolor));
-        stroke: var(
-          --tab-line-color,
-          var(--tabs-border-color, rgba(128, 128, 142, 0.9))
-        );
+        stroke: var(--tab-line-color, var(--tabs-border-color, rgba(128, 128, 142, 0.9)));
       }
     }
     &[multiselected] .tab-background {
@@ -94,13 +94,19 @@
     }
   }
 
-  &::is([lwtheme-mozlightdark], [style*="--lwt-accent-color: rgb(28, 27, 34); --lwt-text-color: rgba(251, 251, 254);"])#{$lwtheme}
-    #TabsToolbar[brighttext] #tabbrowser-tabs:not([noshadowfortests]) .tabbrowser-tab[visuallyselected] .tab-background {
-      &::before,
-      &::after {
-        /* As Selected Tab - Box Shadow */
-        stroke: var(--toolbar-color);
-      }
+  &::is(
+      [lwtheme-mozlightdark],
+      [style*="--lwt-accent-color: rgb(28, 27, 34); --lwt-text-color: rgba(251, 251, 254);"]
+    )#{$lwtheme}
+    #TabsToolbar[brighttext]
+    #tabbrowser-tabs:not([noshadowfortests])
+    .tabbrowser-tab[visuallyselected]
+    .tab-background {
+    &::before,
+    &::after {
+      /* As Selected Tab - Box Shadow */
+      stroke: var(--toolbar-color);
+    }
   }
 
   @include OS($linux) {

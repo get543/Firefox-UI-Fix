@@ -64,7 +64,10 @@ See the above repository for updates as well as full license text. */
 #tabs-newtab-button {
   margin-bottom: 0 !important;
 }
-#tabbrowser-tabs[hasadjacentnewtabbutton][overflow="true"] > #tabbrowser-arrowscrollbox > #tabbrowser-arrowscrollbox-periphery > #tabs-newtab-button {
+#tabbrowser-tabs[hasadjacentnewtabbutton][overflow="true"]
+  > #tabbrowser-arrowscrollbox
+  > #tabbrowser-arrowscrollbox-periphery
+  > #tabs-newtab-button {
   @include Box(true);
 }
 

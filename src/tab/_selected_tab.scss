@@ -44,7 +44,8 @@
 @include Option(
   "userChrome.tab.photon_like_contextline",
   "userChrome.tab.static_separator",
-  "userChrome.tab.bar_separator") {
+  "userChrome.tab.bar_separator"
+) {
   @include Option("userChrome.tab.blue_accent") {
     :root,
     #tabbrowser-tabs {

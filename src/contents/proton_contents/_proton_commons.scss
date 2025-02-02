@@ -11,7 +11,6 @@
   }
 }
 
-
 @include moz-document(
   url-prefix "about:plugins",
   url-prefix "about:cache",
@@ -216,7 +215,14 @@
     outline: 2px solid var(--in-content-focus-outline-color) !important;
     outline-offset: -1px !important; /* Prevents antialiasing around the corners */
   }
-  input:is([type="email"], [type="tel"], [type="text"], [type="password"], [type="url"], [type="number"]):-moz-ui-invalid,
+  input:is(
+      [type="email"],
+      [type="tel"],
+      [type="text"],
+      [type="password"],
+      [type="url"],
+      [type="number"]
+    ):-moz-ui-invalid,
   textarea:-moz-ui-invalid {
     border-color: transparent !important;
     outline: 2px solid var(--in-content-border-invalid) !important;
@@ -234,20 +240,13 @@
   }
 }
 
-@include moz-document(
-  url-prefix "about:plugins",
-  url-prefix "about:cache",
-  url-prefix "about:checkerboard"
-) {
+@include moz-document(url-prefix "about:plugins", url-prefix "about:cache", url-prefix "about:checkerboard") {
   table {
     border: 1px solid var(--in-content-table-border-color) !important;
     border-radius: 0 !important;
   }
 }
-@include moz-document(
-  url-prefix "about:cache",
-  url-prefix "about:checkerboard"
-) {
+@include moz-document(url-prefix "about:cache", url-prefix "about:checkerboard") {
   th,
   td {
     border: 1px solid var(--in-content-table-border-color) !important;

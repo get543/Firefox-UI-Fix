@@ -1,4 +1,4 @@
- :root:not([customizing="true"]) #forward-button[disabled="true"] {
+:root:not([customizing="true"]) #forward-button[disabled="true"] {
   margin-left: var(--uc-toolbarbutton-hide-size) !important;
   opacity: 0 !important;
   pointer-events: none;
@@ -9,8 +9,7 @@
     transition-property: background-color, opacity, margin-left !important;
   }
   #forward-button[disabled="true"] {
-    transition: background-color 1s var(--animation-easing-function),
-                opacity 1s var(--animation-easing-function),
-                margin-left 0.5s ease !important;
+    transition: background-color 1s var(--animation-easing-function), opacity 1s var(--animation-easing-function),
+      margin-left 0.5s ease !important;
   }
 }

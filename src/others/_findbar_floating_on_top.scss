@@ -26,7 +26,7 @@ findbar {
   border-right: 1px solid var(--chrome-content-separator-color);
 
   &::before {
-    content:"";
+    content: "";
     @include Box;
     position: absolute;
     @include BoxFlex(200);
@@ -45,7 +45,8 @@ findbar {
 .findbar-container {
   @include BoxDirection("reverse");
   border-width: 0 0 1px 1px;
-  border-radius: var(--uc-rounding-toolbar, var(--toolbarbutton-border-radius)) 0 0 var(--uc-rounding-toolbar, var(--toolbarbutton-border-radius)) !important;
+  border-radius: var(--uc-rounding-toolbar, var(--toolbarbutton-border-radius)) 0 0
+    var(--uc-rounding-toolbar, var(--toolbarbutton-border-radius)) !important;
 
   > .findbar-find-fast {
     padding: var(--toolbarbutton-inner-padding) 1px;
@@ -74,7 +75,7 @@ findbar {
     padding: 4px;
     border-radius: var(--toolbarbutton-border-radius);
   }
-  &:hover > image{
+  &:hover > image {
     background: var(--toolbarbutton-hover-background) !important;
   }
 }

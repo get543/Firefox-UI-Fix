@@ -91,7 +91,6 @@ menu {
   --toolbarseparator-color: color-mix(in srgb, currentColor 20%, transparent); /* 60% at v105 */
 }
 
-
 /*= Light Weight Theme =======================================================*/
 /* Header Image */
 :root[lwtheme-image] > body {
@@ -157,7 +156,10 @@ html|input.findbar-textbox {
 treechildren::-moz-tree-cell-text(primary, dropOn),
 treechildren::-moz-tree-drop-feedback,
 vbox[part="drop-indicator-bar"] > image[part="drop-indicator"] {
-  background-color: var(--button-primary-bgcolor, var(--focus-outline-color)) !important; /* Original: SelectedItem or AccentColor*/
+  background-color: var(
+    --button-primary-bgcolor,
+    var(--focus-outline-color)
+  ) !important; /* Original: SelectedItem or AccentColor*/
 }
 
 #bookmarksPanel[lwt-sidebar="true"] {
@@ -173,7 +175,7 @@ vbox[part="drop-indicator-bar"] > image[part="drop-indicator"] {
   }
 }
 
-:root:not([privatebrowsingmode=temporary])[firefoxviewhidden] #firefox-view-button + {
+:root:not([privatebrowsingmode="temporary"])[firefoxviewhidden] #firefox-view-button + {
   @include _firefox_view_border_remove;
 }
 
@@ -198,7 +200,9 @@ vbox[part="drop-indicator-bar"] > image[part="drop-indicator"] {
 :root:is([tabsintitlebar], [customtitlebar]) #TabsToolbar:-moz-window-inactive {
   opacity: 1 !important;
   color: color-mix(in srgb, currentColor calc(var(--inactive-titlebar-opacity, 0.75) * 100%), transparent) !important;
-  --inactive-toolbarbutton-icon-fill-opacity: calc(var(--toolbarbutton-icon-fill-opacity, 1) * var(--inactive-titlebar-opacity, 0.75));
+  --inactive-toolbarbutton-icon-fill-opacity: calc(
+    var(--toolbarbutton-icon-fill-opacity, 1) * var(--inactive-titlebar-opacity, 0.75)
+  );
 
   .toolbarbutton-icon {
     fill-opacity: var(--inactive-toolbarbutton-icon-fill-opacity, 1);
@@ -207,12 +211,15 @@ vbox[part="drop-indicator-bar"] > image[part="drop-indicator"] {
 
 /*= Tabpreviw transparent #890 ===============================================*/
 #tab-preview-panel {
-  --panel-background: var(--arrowpanel-background) !important; /* Original: var(--tab-selected-bgcolor, var(--toolbar-bgcolor)) */
+  --panel-background: var(
+    --arrowpanel-background
+  ) !important; /* Original: var(--tab-selected-bgcolor, var(--toolbar-bgcolor)) */
   --panel-color: var(--arrowpanel-color) !important; /* Original: var(--tab-selected-textcolor, var(--toolbar-color)) */
 }
 
 /*= Design token =============================================================*/
-:root, :host {
+:root,
+:host {
   --button-color: var(--button-text-color);
   --button-bgcolor: var(--button-background-color);
   --button-hover-bgcolor: var(--button-background-color-hover);

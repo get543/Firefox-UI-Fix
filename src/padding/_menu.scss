@@ -11,7 +11,7 @@
   :root {
     --menu-padding: 2px;
   }
-  :root[uidensity=compact] {
+  :root[uidensity="compact"] {
     --menu-padding: 0px;
   }
 }
@@ -78,4 +78,3 @@ menupopup > menu {
 .bookmark-item.subviewbutton > .menu-right {
   margin-inline-end: 0 !important;
 }
-

@@ -37,7 +37,6 @@
   }
 }
 
-
 //-- Mixin ---------------------------------------------------------------------
 @mixin _errorContainerImage($imgURL) {
   :root {
@@ -90,16 +89,13 @@
 ) {
   @include _errorContainerImage("chrome://browser/skin/illustrations/error-malformed-url.svg");
 }
-@include moz-document(
-  url-prefix "about:neterror?e=clockSkewError",
-  url-prefix "about:neterror?e=nssFailure"
-) {
+@include moz-document(url-prefix "about:neterror?e=clockSkewError", url-prefix "about:neterror?e=nssFailure") {
   @include _errorContainerImage("../icons/blue-berror.svg") {
     background-size: 18.5em;
   }
 }
 
-@include moz-document(url "about:sessionrestore" , url "chrome://browser/content/aboutSessionRestore.xhtml") {
+@include moz-document(url "about:sessionrestore", url "chrome://browser/content/aboutSessionRestore.xhtml") {
   @include _errorDescriptionImage("../icons/error-session-restore.svg");
 }
 

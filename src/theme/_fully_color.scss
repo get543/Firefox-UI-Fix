@@ -6,9 +6,8 @@ html#main-window menupopup:not(.in-menulist) {
 
   --menu-border-color: var(
     --panel-separator-color,
-    var(--toolbarbutton-active-background,
-        var(--button-active-bgcolor, var(--card-outline-color))
-   )) !important;
+    var(--toolbarbutton-active-background, var(--button-active-bgcolor, var(--card-outline-color)))
+  ) !important;
   --menuitem-hover-background-color: var(
     --toolbarbutton-hover-background,
     var(--button-hover-bgcolor, var(--in-content-button-background-hover))
@@ -67,7 +66,7 @@ html#main-window menupopup:not(.in-menulist) {
   @include Light {
     :root[style*="background-noodles-right"] menupopup {
       // Alphen Glow Theme - Like darkmode
-      --toolbarbutton-hover-background: rgba(232, 224, 255, 0.11999999731779099)!important;
+      --toolbarbutton-hover-background: rgba(232, 224, 255, 0.11999999731779099) !important;
     }
   }
 }

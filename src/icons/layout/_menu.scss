@@ -75,7 +75,8 @@ $_layoutCommonMenus: (
     padding-inline-end: 3px;
 
     &:first-child {
-      background-position: var(--uc-menu-background-position) calc(3px + var(--context-menu-background-padding-default)) center !important;
+      background-position: var(--uc-menu-background-position) calc(3px + var(--context-menu-background-padding-default))
+        center !important;
       padding-inline-start: calc(19px + var(--context-menu-background-padding-default)) !important;
     }
     menupopup {
@@ -135,7 +136,7 @@ $_layoutCommonMenus: (
   }
 
   /* Checkbox menuitem, None iconic menu */
-  #{selector.nest($_nestedPopupPadding, "menuitem[type=\"checkbox\"]")} {
+  #{selector.nest($_nestedPopupPadding, 'menuitem[type="checkbox"]')} {
     // "menuitem[checked=\"true\"], menu:not(.menu-iconic)"
     @include _layout_init_mac_others;
   }

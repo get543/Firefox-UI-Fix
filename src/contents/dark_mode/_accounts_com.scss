@@ -114,13 +114,14 @@
   footer a[data-testid="link-mozilla"] {
     filter: invert(95%) !important;
   }
-  div[data-testid="settings-connected-service"] svg:is(
-    [data-testid="mobile-icon"],
-    [data-testid="desktop-icon"],
-    [data-testid="tablet-icon"],
-    [data-testid="vr-icon"],
-    [data-testid="addon-icon"]
-  ),
+  div[data-testid="settings-connected-service"]
+    svg:is(
+      [data-testid="mobile-icon"],
+      [data-testid="desktop-icon"],
+      [data-testid="tablet-icon"],
+      [data-testid="vr-icon"],
+      [data-testid="addon-icon"]
+    ),
   header button svg,
   header .rounded svg,
   #service svg {

@@ -310,7 +310,6 @@
   list-style-image: url("../icons/arrow-up-exclamation.svg");
 }
 
-
 #context-ask-chat menuitem:nth-child(1) {
   --menuitem-image: url("../icons/apps-list-detail.svg");
 }
@@ -342,7 +341,7 @@
 #context-bookmarkframe {
   --menuitem-image: url("chrome://browser/skin/bookmark.svg");
 }
-#context-saveframe{
+#context-saveframe {
   --menuitem-image: url("../icons/toolbarButton-download.svg");
 }
 

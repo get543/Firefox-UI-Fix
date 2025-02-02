@@ -3,10 +3,10 @@
 // .menu-iconic, .menuitem-iconic: Already exist, not target.
 // .in-menulist: Not a range because it is a select menu of web content.
 // [checked="true"]: There should be a check mark instead of an icon.
-$_iconNoneCommon: ".in-menulist, [checked=\"true\"]";
+$_iconNoneCommon: '.in-menulist, [checked="true"]';
 $_iconMenuitem: "menuitem:not(.menuitem-iconic, .bookmark-item, #{$_iconNoneCommon})";
 $_iconMenu: "menu:not(.menu-iconic, #{$_iconNoneCommon})";
-$_checkMenu: ":not([type=\"checkbox\"][checked=\"true\"], [type=\"radio\"])";
+$_checkMenu: ':not([type="checkbox"][checked="true"], [type="radio"])';
 
 // Components
 $_nestedPopup: "> menupopup:not(.in-menulist) >";
@@ -14,18 +14,9 @@ $_nestedPopupIcon: ":not(menu, #ContentSelectDropdown) #{$_nestedPopup}";
 $_nestedPopupPadding: ":not(menu, #ContentSelectDropdown, #context-navigation) #{$_nestedPopup}";
 $_iconMenuPopup: "menupopup:is(#menu_FilePopup, #menu_EditPopup, #menu_viewPopup, #goPopup, #historyMenuPopup, #bookmarksMenuPopup, #menu_ToolsPopup, #windowPopup, #menu_HelpPopup, #usercssloader-menupopup)";
 
-$_nestedPopupIconMenus: selector.nest(
-  $_nestedPopupIcon,
-  "#{$_iconMenuitem}, #{$_iconMenu}"
-);
-$_nestedPopupPaddingMenus: selector.nest(
-  $_nestedPopupPadding,
-  "#{$_iconMenuitem}, #{$_iconMenu}"
-);
-$_iconMenuPopupMenus: selector.nest(
-  $_iconMenuPopup,
-  "#{$_iconMenuitem}, #{$_iconMenu}"
-);
+$_nestedPopupIconMenus: selector.nest($_nestedPopupIcon, "#{$_iconMenuitem}, #{$_iconMenu}");
+$_nestedPopupPaddingMenus: selector.nest($_nestedPopupPadding, "#{$_iconMenuitem}, #{$_iconMenu}");
+$_iconMenuPopupMenus: selector.nest($_iconMenuPopup, "#{$_iconMenuitem}, #{$_iconMenu}");
 
 $_globalMenus: "#main-menubar > menu";
 $_libraryMenuitem: "menupopup:is(#organizeButtonPopup, #maintenanceButtonPopup) > #{$_iconMenuitem}";
@@ -36,12 +27,8 @@ $_otherIconMenu: ".openintabs-menuitem, #blockedPopupDontShowMessage, #BMB_viewB
 
 //-- Mixin ---------------------------------------------------------------------
 // Init Menu
-$_initialMenus: selector.append(
-  "menupopup menuitem, menupopup menu",
-  $_checkMenu
-);
-$_initialMenus: $_initialMenus + "," +
-                selector.nest($_initialMenus, "> .menu-iconic-left > .menu-iconic-icon");
+$_initialMenus: selector.append("menupopup menuitem, menupopup menu", $_checkMenu);
+$_initialMenus: $_initialMenus + "," + selector.nest($_initialMenus, "> .menu-iconic-left > .menu-iconic-icon");
 @mixin _initial_menus() {
   -moz-appearance: none !important; /* Linux: menulist */
 }
@@ -84,7 +71,7 @@ $_initialMenus: $_initialMenus + "," +
 @mixin _layout_root_non_native() {
   :root {
     --context-menu-background-padding: 1em;
-    --context-menu-text-padding-default: #{ 16px + 8px };
+    --context-menu-text-padding-default: #{16px + 8px};
     --context-menu-text-padding: var(--context-menu-text-padding-default);
     --menu-background-padding-default: calc(var(--context-menu-background-padding) + var(--context-menu-text-padding));
 
@@ -111,12 +98,15 @@ $_initialMenus: $_initialMenus + "," +
         }
       }
     }
-    .menu-accel, .menu-iconic-accel {
+    .menu-accel,
+    .menu-iconic-accel {
       box-sizing: content-box;
       min-height: 16px;
     }
-    .menu-accel, .menu-iconic-accel,
-    .menu-text, .menu-iconic-text {
+    .menu-accel,
+    .menu-iconic-accel,
+    .menu-text,
+    .menu-iconic-text {
       padding-block: 0 !important;
     }
   }
@@ -125,8 +115,12 @@ $_initialMenus: $_initialMenus + "," +
 @mixin _layout_root_win() {
   @include OS($win) {
     :root {
-      --bookmark-menu-icon-text-padding: calc(var(--context-menu-text-padding) + var(--arrowpanel-menuitem-padding-inline));
-      --bookmark-menu-icon-background-padding: calc(var(--arrowpanel-menuitem-padding-inline) + var(--bookmark-menu-icon-align-padding));
+      --bookmark-menu-icon-text-padding: calc(
+        var(--context-menu-text-padding) + var(--arrowpanel-menuitem-padding-inline)
+      );
+      --bookmark-menu-icon-background-padding: calc(
+        var(--arrowpanel-menuitem-padding-inline) + var(--bookmark-menu-icon-align-padding)
+      );
     }
 
     @include WinNativeMenu() {

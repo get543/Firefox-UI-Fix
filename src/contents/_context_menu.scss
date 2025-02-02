@@ -1,19 +1,12 @@
 @import "../icons/shared";
 
-@include moz-document(
-  url-prefix "about:",
-  url-prefix "chrome://",
-  regexp "^((jar:)?file:\/\/\/).*\/$"
-) {
+@include moz-document(url-prefix "about:", url-prefix "chrome://", regexp "^((jar:)?file:\/\/\/).*\/$") {
   :root {
     @include initIcons;
   }
 }
 
-@include moz-document(
-  url "chrome://browser/content/places/places.xhtml",
-  url "about:downloads"
-) {
+@include moz-document(url "chrome://browser/content/places/places.xhtml", url "about:downloads") {
   @import "../icons/layout/menu_contents";
 
   /*= Context Menu ===========================================================*/

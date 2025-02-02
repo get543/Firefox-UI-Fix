@@ -26,7 +26,12 @@ menuitem.openintabs-menuitem,
 #unified-extensions-manage-extensions,
 .unified-extensions-item-open-menu,
 .unified-extensions-item-menu-button.subviewbutton,
-#PopupAutoComplete > richlistbox > richlistitem[originaltype="insecureWarning"] > .ac-title > .ac-text-overflow-container > .ac-title-text {
+#PopupAutoComplete
+  > richlistbox
+  > richlistitem[originaltype="insecureWarning"]
+  > .ac-title
+  > .ac-text-overflow-container
+  > .ac-title-text {
   cursor: pointer !important;
 }
 

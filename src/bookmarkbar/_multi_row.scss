@@ -18,9 +18,13 @@
   flex-wrap: wrap;
   overflow-y: auto;
   scroll-snap-type: y mandatory;
-  max-height: calc(var(--uc-multirow-bookmark-rows) *
-                   (var(--uc-bm-height, calc(20px + var(--bookmark-block-padding, 4px))) +
-                    (2 * var(--uc-multirow-bookmark-row-margin)))) !important;
+  max-height: calc(
+    var(--uc-multirow-bookmark-rows) *
+      (
+        var(--uc-bm-height, calc(20px + var(--bookmark-block-padding, 4px))) +
+          (2 * var(--uc-multirow-bookmark-row-margin))
+      )
+  ) !important;
 }
 
 // Hide the all-bookmarks button

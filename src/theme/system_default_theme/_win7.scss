@@ -4,10 +4,7 @@
     --background-color: rgb(229, 229, 235);
     --toolbarseparator-color: transparent;
   }
-  #TabsToolbar:not(:-moz-lwtheme)
-    .tabbrowser-tab
-    > .tab-stack
-    > .tab-background:not([selected], [multiselected]) {
+  #TabsToolbar:not(:-moz-lwtheme) .tabbrowser-tab > .tab-stack > .tab-background:not([selected], [multiselected]) {
     color: var(--background-color);
     background-color: color-mix(in srgb, currentColor 60%, transparent);
   }

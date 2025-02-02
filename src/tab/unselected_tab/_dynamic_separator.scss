@@ -48,7 +48,7 @@
     transform: translateX(var(--tab-separator-position-x)) translateY(var(--tab-separator-position-y));
   }
   #tabs-newtab-button::before {
-    left: calc(50%  - (8px + var(--toolbarbutton-inner-padding)));
+    left: calc(50% - (8px + var(--toolbarbutton-inner-padding)));
   }
 }
 
@@ -96,7 +96,11 @@
 }
 
 #navigator-toolbox:not([movingtab])
-  .tabbrowser-tab:is([first-visible-unpinned-tab], :nth-child(1 of :not([pinned], [hidden]))):is([visuallyselected], [multiselected], :hover)
+  .tabbrowser-tab:is([first-visible-unpinned-tab], :nth-child(1 of :not([pinned], [hidden]))):is(
+    [visuallyselected],
+    [multiselected],
+    :hover
+  )
   .tab-stack::before,
 #navigator-toolbox:not([movingtab])
   #tabbrowser-arrowscrollbox[overflowing]

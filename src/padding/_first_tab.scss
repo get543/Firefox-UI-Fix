@@ -13,6 +13,6 @@
 @include Option("userChrome.padding.first_tab.always") {
   :root:not([tabsintitlebar]):not([customtitlebar]) #tabbrowser-tabs,
   :root:is([sizemode="maximized"], [sizemode="fullscreen"]) #tabbrowser-tabs {
-    padding-inline-start: calc(var(--tab-overflow-pinned-tabs-width, 0px) +  var(--uc-space-left-tabbar)) !important;
+    padding-inline-start: calc(var(--tab-overflow-pinned-tabs-width, 0px) + var(--uc-space-left-tabbar)) !important;
   }
 }

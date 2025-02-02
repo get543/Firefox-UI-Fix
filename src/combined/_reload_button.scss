@@ -11,7 +11,7 @@
   --toolbarbutton-hover-background: var(--urlbar-box-hover-bgcolor);
   color: var(--urlbar-box-hover-text-color) !important;
 
-  margin-left: calc( -1 * (var(--uc-toolbarbutton-size) + var(--urlbar-margin-inline)));
+  margin-left: calc(-1 * (var(--uc-toolbarbutton-size) + var(--urlbar-margin-inline)));
 }
 
 #nav-bar-customization-target > #stop-reload-button > .toolbarbutton-1 > .toolbarbutton-icon {

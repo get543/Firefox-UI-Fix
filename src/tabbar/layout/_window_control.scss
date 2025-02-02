@@ -12,7 +12,9 @@ See the above repository for updates as well as full license text. */
 
   @include Option("userChrome.tabbar.on_bottom") {
     @include Option("userChrome.tabbar.on_bottom.menubar_on_top") {
-      padding-top: calc(max(var(--uc-menubar-height), var(--uc-menubar-height-default)) + var(--uc-titlebar-padding)) !important;
+      padding-top: calc(
+        max(var(--uc-menubar-height), var(--uc-menubar-height-default)) + var(--uc-titlebar-padding)
+      ) !important;
     }
   }
 }
@@ -22,7 +24,7 @@ See the above repository for updates as well as full license text. */
   position: fixed;
   display: block;
   top: 0;
-  right:0;
+  right: 0;
   z-index: 1;
 }
 
@@ -46,8 +48,8 @@ See the above repository for updates as well as full license text. */
 }
 
 @include WindowControl_Left {
-  .titlebar-buttonbox-container{
-    left:0;
+  .titlebar-buttonbox-container {
+    left: 0;
     right: unset !important;
   }
 }
@@ -94,7 +96,9 @@ See the above repository for updates as well as full license text. */
   }
 }
 
-#navigator-toolbox:is(:hover, :focus-within) #toolbar-menubar[inactive]:not([customizing]) > .titlebar-buttonbox-container {
+#navigator-toolbox:is(:hover, :focus-within)
+  #toolbar-menubar[inactive]:not([customizing])
+  > .titlebar-buttonbox-container {
   @include Option("userChrome.hidden.tabbar") {
     @include Option("userChrome.autohide.navbar") {
       opacity: 1;
@@ -106,9 +110,11 @@ See the above repository for updates as well as full license text. */
 @include Animate {
   #toolbar-menubar[inactive] > .titlebar-buttonbox-container {
     transition: opacity 0.25s var(--animation-easing-function) var(--uc-autohide-toolbar-delay, 600ms),
-                visibility 100ms var(--animation-easing-function) 0.25s !important;
+      visibility 100ms var(--animation-easing-function) 0.25s !important;
   }
-  #navigator-toolbox:is(:hover, :focus-within) #toolbar-menubar[inactive]:not([customizing]) > .titlebar-buttonbox-container {
+  #navigator-toolbox:is(:hover, :focus-within)
+    #toolbar-menubar[inactive]:not([customizing])
+    > .titlebar-buttonbox-container {
     transition-delay: 0s !important;
   }
 }
@@ -146,7 +152,10 @@ See the above repository for updates as well as full license text. */
 }
 
 /* At Activated Menubar */
-:root:not([chromehidden~="menubar"], [sizemode="fullscreen"]) #toolbar-menubar:not([autohide="true"]) + #TabsToolbar > .titlebar-buttonbox-container {
+:root:not([chromehidden~="menubar"], [sizemode="fullscreen"])
+  #toolbar-menubar:not([autohide="true"])
+  + #TabsToolbar
+  > .titlebar-buttonbox-container {
   display: block !important;
 }
 :root:not([chromehidden~="menubar"]) #toolbar-menubar:not([autohide="true"]) .titlebar-buttonbox-container {

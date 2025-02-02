@@ -9,11 +9,9 @@
 ) {
   @import "../theme/proton_color";
 
-  @include Option(
-    "userContent.page.proton_color.dark_blue_accent",
-    "userContent.page.proton_color.system_accent"
-    ) {
-    :root, :host(.anonymous-content-host) {
+  @include Option("userContent.page.proton_color.dark_blue_accent", "userContent.page.proton_color.system_accent") {
+    :root,
+    :host(.anonymous-content-host) {
       --color-accent-primary: var(--in-content-primary-button-background) !important;
       --color-accent-primary-hover: var(--in-content-primary-button-background-hover) !important;
       --color-accent-primary-active: light-dark(var(--color-blue-70), var(--color-cyan-20));
@@ -23,14 +21,16 @@
     @include Dark {
       @import "../theme/dark_blue_color";
 
-      :host, :root {
+      :host,
+      :root {
         @include DarkBlueContent;
       }
     }
   }
 
   @include Option("userContent.page.proton_color.system_accent") {
-    :host, :root {
+    :host,
+    :root {
       @include AccentColor("Highlight") {
         --in-content-primary-button-text-color: #{$accentTextColor} !important;
 

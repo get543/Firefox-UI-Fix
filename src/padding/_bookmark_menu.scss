@@ -8,7 +8,7 @@
   :root {
     --bookmark-menu-padding: 2px;
   }
-  :root[uidensity=compact] {
+  :root[uidensity="compact"] {
     --bookmark-menu-padding: 0px;
   }
 }

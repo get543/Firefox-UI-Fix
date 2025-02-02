@@ -30,11 +30,11 @@
   }
 }
 
-
 @include Animate {
   #sidebar-box {
-    transition: min-width var(--uc-autohide-sidebar-speed) var(--animation-easing-function) var(--uc-autohide-sidebar-delay),
-                max-width var(--uc-autohide-sidebar-speed) var(--animation-easing-function) var(--uc-autohide-sidebar-delay) !important;
+    transition: min-width var(--uc-autohide-sidebar-speed) var(--animation-easing-function)
+        var(--uc-autohide-sidebar-delay),
+      max-width var(--uc-autohide-sidebar-speed) var(--animation-easing-function) var(--uc-autohide-sidebar-delay) !important;
 
     &:is(:hover, :focus-within),
     &:has(#sidebar-switcher-target.active) {
@@ -43,7 +43,8 @@
   }
 
   :root[inFullscreen="true"] #sidebar-box {
-    transition: margin-inline-start var(--uc-autohide-fullscreen-sidebar-speed) var(--animation-easing-function) var(--uc-autohide-sidebar-delay) !important;
+    transition: margin-inline-start var(--uc-autohide-fullscreen-sidebar-speed) var(--animation-easing-function)
+      var(--uc-autohide-sidebar-delay) !important;
 
     &[positionend] {
       transition-property: margin-inline-end !important;

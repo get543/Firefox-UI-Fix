@@ -84,8 +84,8 @@ function Verify-PowerShellVersion {
 
   Write-Host "[$PSVersion]"
   if ($PSVersion -lt $PSMinSupportedVersion) {
-      Write-Error -Category NotInstalled "You need a minimum PowerShell version of [$PSMinSupportedVersion] to use this installer"
-      exit -1
+    Write-Error -Category NotInstalled "You need a minimum PowerShell version of [$PSMinSupportedVersion] to use this installer"
+    exit -1
   }
 }
 
@@ -93,12 +93,12 @@ function Verify-PowerShellVersion {
 function Install-Choco() {
   # https://chocolatey.org/install
   # https://docs.chocolatey.org/en-us/choco/setup#non-administrative-install
-  $InstallDir='C:\ProgramData\chocoportable'
-  $env:ChocolateyInstall="$InstallDir"
+  $InstallDir = 'C:\ProgramData\chocoportable'
+  $env:ChocolateyInstall = "$InstallDir"
 
   Set-ExecutionPolicy Bypass -Scope Process -Force
   [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
-  iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+  Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
   $env:Path += ";C:\ProgramData\chocoportable" # Adimin: ";C:\ProgramData\chocolatey"
   refreshenv
 }
@@ -123,9 +123,9 @@ $currentDir = (Get-Location).path
 
 function Filter-Path() {
   Param (
-    [Parameter(Mandatory=$true, Position=0)]
+    [Parameter(Mandatory = $true, Position = 0)]
     [string[]] $pathList,
-    [Parameter(Position=1)]
+    [Parameter(Position = 1)]
     [string]   $option = "Any"
   )
 
@@ -134,9 +134,9 @@ function Filter-Path() {
 
 function Copy-Auto() {
   Param (
-    [Parameter(Mandatory=$true, Position=0)]
+    [Parameter(Mandatory = $true, Position = 0)]
     [string] $file,
-    [Parameter(Mandatory=$true, Position=1)]
+    [Parameter(Mandatory = $true, Position = 1)]
     [string] $target
   )
 
@@ -158,9 +158,9 @@ function Copy-Auto() {
 
 function Move-Auto() {
   Param (
-    [Parameter(Mandatory=$true, Position=0)]
+    [Parameter(Mandatory = $true, Position = 0)]
     [string] $file,
-    [Parameter(Mandatory=$true, Position=1)]
+    [Parameter(Mandatory = $true, Position = 1)]
     [string] $target
   )
 
@@ -179,9 +179,9 @@ function Move-Auto() {
   Get-ChildItem -Path "${target}" -Recurse | Move-Item -Path "${file}" -Destination "${target}" -Force
 }
 
- function Restore-Auto() {
+function Restore-Auto() {
   Param (
-    [Parameter(Mandatory=$true, Position=0)]
+    [Parameter(Mandatory = $true, Position = 0)]
     [string] $file
   )
   $local:target = "${file}.bak"
@@ -199,9 +199,9 @@ function Move-Auto() {
 
 function Write-File() {
   Param (
-    [Parameter(Mandatory=$true, Position=0)]
+    [Parameter(Mandatory = $true, Position = 0)]
     [string] $filePath,
-    [Parameter(Position=1)]
+    [Parameter(Position = 1)]
     [string] $fileContent = ""
   )
 
@@ -217,7 +217,7 @@ function Write-File() {
 # https://devblogs.microsoft.com/scripting/use-powershell-to-work-with-any-ini-file/
 function Get-IniContent () {
   Param (
-    [Parameter(Mandatory=$true, Position=0)]
+    [Parameter(Mandatory = $true, Position = 0)]
     [string] $filePath
   )
 
@@ -238,13 +238,13 @@ function Get-IniContent () {
     }
     "(.+?)\s*=(.*)" {
       # For compatibility
-      if ( $section -eq $null ) {
+      if ( $null -eq $section ) {
         $section = "Info"
         $ini[$section] = @{}
       }
 
       # Key
-      $name,$value = $matches[1..2]
+      $name, $value = $matches[1..2]
       $ini[$section][$name] = $value
     }
   }
@@ -253,9 +253,9 @@ function Get-IniContent () {
 
 function Out-IniFile() {
   Param (
-    [Parameter(Mandatory=$true, Position=0)]
+    [Parameter(Mandatory = $true, Position = 0)]
     [string] $filePath,
-    [Parameter(Position=1)]
+    [Parameter(Position = 1)]
     [hashtable] $iniObject = @{}
   )
 
@@ -287,7 +287,7 @@ function Out-IniFile() {
 #** Select Menu ****************************************************************
 # https://github.com/chrisseroka/ps-menu
 function Check-PsMenu() {
-  if(-Not (Get-InstalledModule ps-menu -ErrorAction silentlycontinue)) {
+  if (-Not (Get-InstalledModule ps-menu -ErrorAction silentlycontinue)) {
     Set-PSRepository PSGallery -InstallationPolicy Trusted
     Install-Module -Name ps-menu -Confirm:$False -Force
   }
@@ -297,10 +297,10 @@ function DrawMenu {
   param ($menuItems, $menuPosition, $Multiselect, $selection)
   $l = $menuItems.length
   for ($i = 0; $i -le $l; $i++) {
-    if ($menuItems[$i] -ne $null){
+    if ($null -ne $menuItems[$i]) {
       $item = $menuItems[$i]
       if ($Multiselect) {
-        if ($selection -contains $i){
+        if ($selection -contains $i) {
           $item = '[x] ' + $item
         }
         else {
@@ -311,7 +311,7 @@ function DrawMenu {
         Write-Host "> $($item)" -ForegroundColor Green
       }
       else {
-	Write-Host "  $($item)"
+        Write-Host "  $($item)"
       }
     }
   }
@@ -319,8 +319,8 @@ function DrawMenu {
 
 function Toggle-Selection {
   param ($pos, [array]$selection)
-  if ($selection -contains $pos){
-    $result = $selection | where {$_ -ne $pos}
+  if ($selection -contains $pos) {
+    $result = $selection | Where-Object { $_ -ne $pos }
   }
   else {
     $selection += $pos
@@ -330,25 +330,25 @@ function Toggle-Selection {
 }
 
 function Menu {
-  param ([array]$menuItems, [switch]$ReturnIndex=$false, [switch]$Multiselect)
+  param ([array]$menuItems, [switch]$ReturnIndex = $false, [switch]$Multiselect)
   $vkeycode = 0
   $pos = 0
   $selection = @()
   if ($menuItems.Length -gt 0) {
     try {
-      [console]::CursorVisible=$false #prevents cursor flickering
+      [console]::CursorVisible = $false #prevents cursor flickering
       DrawMenu $menuItems $pos $Multiselect $selection
       While ($vkeycode -ne 13 -and $vkeycode -ne 27) {
         $press = $host.ui.rawui.readkey("NoEcho,IncludeKeyDown")
         $vkeycode = $press.virtualkeycode
-        If ($vkeycode -eq 38 -or $press.Character -eq 'k') {$pos--}
-        If ($vkeycode -eq 40 -or $press.Character -eq 'j') {$pos++}
+        If ($vkeycode -eq 38 -or $press.Character -eq 'k') { $pos-- }
+        If ($vkeycode -eq 40 -or $press.Character -eq 'j') { $pos++ }
         If ($vkeycode -eq 36) { $pos = 0 }
         If ($vkeycode -eq 35) { $pos = $menuItems.length - 1 }
         If ($press.Character -eq ' ') { $selection = Toggle-Selection $pos $selection }
-        if ($pos -lt 0) {$pos = 0}
-        If ($vkeycode -eq 27) {$pos = $null }
-        if ($pos -ge $menuItems.length) {$pos = $menuItems.length -1}
+        if ($pos -lt 0) { $pos = 0 }
+        If ($vkeycode -eq 27) { $pos = $null }
+        if ($pos -ge $menuItems.length) { $pos = $menuItems.length - 1 }
         if ($vkeycode -ne 27) {
           $startPos = [System.Console]::CursorTop - $menuItems.Length
           [System.Console]::SetCursorPosition(0, $startPos)
@@ -365,8 +365,8 @@ function Menu {
     $pos = $null
   }
 
-  if ($ReturnIndex -eq $false -and $pos -ne $null)  {
-    if ($Multiselect){
+  if ($ReturnIndex -eq $false -and $null -ne $pos) {
+    if ($Multiselect) {
       return $menuItems[$selection]
     }
     else {
@@ -396,7 +396,7 @@ $firefoxProfileDirPaths = @(
 
 function Check-ProfileDir() {
   Param (
-    [Parameter(Position=0)]
+    [Parameter(Position = 0)]
     [string] $profileDir = ""
   )
 
@@ -415,7 +415,7 @@ function Check-ProfileDir() {
 }
 
 #== Profile Info ===============================================================
-$PROFILEINFOFILE="profiles.ini"
+$PROFILEINFOFILE = "profiles.ini"
 function Check-ProfileIni() {
   foreach ( $profileDir in $global:firefoxProfileDirPaths ) {
     if ( -Not (Test-Path -Path "${profileDir}\${PROFILEINFOFILE}" -PathType "Leaf") ) {
@@ -431,7 +431,7 @@ $firefoxProfilePaths = @()
 function Update-ProfilePaths() {
   foreach ( $profileDir in $global:firefoxProfileDirPaths ) {
     $local:iniContent = Get-IniContent "${profileDir}\${PROFILEINFOFILE}"
-    $global:firefoxProfilePaths += $iniContent.Values.Path | ForEach-Object  { "${profileDir}\${PSItem}" }
+    $global:firefoxProfilePaths += $iniContent.Values.Path | ForEach-Object { "${profileDir}\${PSItem}" }
   }
 
   if ( $firefoxProfilePaths.Length -ne 0 ) {
@@ -445,7 +445,7 @@ function Update-ProfilePaths() {
 # TODO: Multi select support
 function Select-Profile() {
   Param (
-    [Parameter(Position=0)]
+    [Parameter(Position = 0)]
     [string] $profileName = ""
   )
 
@@ -486,7 +486,7 @@ function Select-Profile() {
 # If you interst RFC, see install.sh
 
 #== Lepton Info ================================================================
-$LEPTONINFOFILE ="lepton.ini"
+$LEPTONINFOFILE = "lepton.ini"
 function Check-LeptonIni() {
   foreach ( $profileDir in $global:firefoxProfileDirPaths ) {
     if ( -Not (Test-Path -Path "${profileDir}\${LEPTONINFOFILE}") ) {
@@ -503,7 +503,7 @@ function Check-LeptonIni() {
 
 function Get-ProfileDir() {
   Param (
-    [Parameter(Mandatory=$true, Position=0)]
+    [Parameter(Mandatory = $true, Position = 0)]
     [string] $profilePath
   )
   foreach ( $profileDir in $firefoxProfileDirPaths ) {
@@ -513,31 +513,31 @@ function Get-ProfileDir() {
   }
 }
 
-$CHROMEINFOFILE="LEPTON"
+$CHROMEINFOFILE = "LEPTON"
 function Write-LeptonInfo() {
   # Init info
-  $local:output     = @{}
-  $local:prevDir    = $firefoxProfileDirPaths[0]
+  $local:output = @{}
+  $local:prevDir = $firefoxProfileDirPaths[0]
   $local:latestPath = ( $firefoxProfilePaths | Select-Object -Last 1 )
   foreach ( $profilePath in $global:firefoxProfilePaths ) {
     $local:LEPTONINFOPATH = "${profilePath}\chrome\${CHROMEINFOFILE}"
-    $local:LEPTONGITPATH  = "${profilePath}\chrome\.git"
+    $local:LEPTONGITPATH = "${profilePath}\chrome\.git"
 
     # Profile info
-    $local:Type   = ""
-    $local:Ver    = ""
+    $local:Type = ""
+    $local:Ver = ""
     $local:Branch = ""
-    $local:Path   = ""
+    $local:Path = ""
     if ( Test-Path -Path "${LEPTONINFOPATH}" ) {
       if ( Test-Path -Path "${LEPTONGITPATH}" -PathType "Container" ) {
-        $Type   = "Git"
-        $Ver    = $(git --git-dir "${LEPTONGITPATH}" rev-parse HEAD)
+        $Type = "Git"
+        $Ver = $(git --git-dir "${LEPTONGITPATH}" rev-parse HEAD)
         $Branch = $(git --git-dir "${LEPTONGITPATH}" rev-parse --abbrev-ref HEAD)
       }
       else {
         $local:iniContent = Get-IniContent "${LEPTONINFOPATH}"
-        $Type   = $iniContent["Info"]["Type"]
-        $Ver    = $iniContent["Info"]["Ver"]
+        $Type = $iniContent["Info"]["Type"]
+        $Ver = $iniContent["Info"]["Ver"]
         $Branch = $iniContent["Info"]["Branch"]
 
         if ( "${Type}" -eq "" ) {
@@ -549,7 +549,7 @@ function Write-LeptonInfo() {
     }
 
     # Flushing
-    $local:profileDir  = Get-ProfileDir "${profilePath}"
+    $local:profileDir = Get-ProfileDir "${profilePath}"
     $local:profileName = Split-Path "${profilePath}" -Leaf
     if ( "${prevDir}" -ne "${profileDir}" ) {
       Out-IniFile "${prevDir}\${LEPTONINFOFILE}" $output
@@ -560,7 +560,7 @@ function Write-LeptonInfo() {
     foreach ( $key in @("Type", "Branch", "Ver", "Path") ) {
       $local:value = (Get-Variable -Name "${key}").Value
       if ( "$value" -ne "" ) {
-        $output["${profileName}"] += @{"${key}" = "${value}"}
+        $output["${profileName}"] += @{"${key}" = "${value}" }
       }
     }
 
@@ -578,7 +578,7 @@ function Write-LeptonInfo() {
 
 #** Install ********************************************************************
 #== Install Types ==============================================================
-$updateMode   = $false
+$updateMode = $false
 $leptonBranch = "master"
 function Select-Distribution() {
   while ( $true ) {
@@ -586,10 +586,10 @@ function Select-Distribution() {
     $local:selectedDistribution = Menu @("Original(default)", "Photon-Style", "Proton-Style", "Update")
     switch ( $selectedDistribution ) {
       "Original(default)" { $global:leptonBranch = "master"      ; $selected = $true }
-      "Photon-Style"      { $global:leptonBranch = "photon-style"; $selected = $true }
-      "Proton-Style"      { $global:leptonBranch = "proton-style"; $selected = $true }
-      "Update"            { $global:updateMode   = $true         ; $selected = $true }
-      default             { Write-Host "Invalid option, reselect please." }
+      "Photon-Style" { $global:leptonBranch = "photon-style"; $selected = $true }
+      "Proton-Style" { $global:leptonBranch = "proton-style"; $selected = $true }
+      "Update" { $global:updateMode = $true         ; $selected = $true }
+      default { Write-Host "Invalid option, reselect please." }
     }
 
     if ( $selected -eq $true ) {
@@ -602,17 +602,17 @@ function Select-Distribution() {
 $leptonInstallType = "Network" # Other types: Local, Release
 function Check-InstallType() {
   Param (
-    [Parameter(Mandatory=$true, Position=0)]
+    [Parameter(Mandatory = $true, Position = 0)]
     [string[]] $targetList,
-    [Parameter(Mandatory=$true, Position=1)]
+    [Parameter(Mandatory = $true, Position = 1)]
     [string] $installType
   )
 
   $local:targetCount = $targetList.Length
-  $local:foundCount  = (Filter-Path $targetList ).Length
+  $local:foundCount = (Filter-Path $targetList ).Length
 
   if ( "${targetCount}" -eq "${foundCount}" ) {
-    $global:leptonInstallType="${installType}"
+    $global:leptonInstallType = "${installType}"
   }
 }
 
@@ -686,13 +686,13 @@ function Copy-CustomFiles() {
 }
 
 $customMethod = ""
-$customReset  = $false
+$customReset = $false
 $customAppend = $false
 function Set-CustomMethod() {
-  $local:menuAppend="Append - Maintain changes in existing files and apply custom"
-  $local:menuOverwrite="Overwrite - After initializing the change, apply only custom"
-  $local:menuNone="None - Maintain changes in existing files"
-  $local:menuReset="Reset- Reset to pure lepton theme without custom"
+  $local:menuAppend = "Append - Maintain changes in existing files and apply custom"
+  $local:menuOverwrite = "Overwrite - After initializing the change, apply only custom"
+  $local:menuNone = "None - Maintain changes in existing files"
+  $local:menuReset = "Reset- Reset to pure lepton theme without custom"
 
   Write-Host "Select custom method"
   while ( "${customMethod}" -eq "" ) {
@@ -704,7 +704,7 @@ function Set-CustomMethod() {
       }
       "${menuOverwrite}" {
         $global:customMethod = "Overwrite"
-        $global:customReset  = $true
+        $global:customReset = $true
         $global:customAppend = $true
       }
       "${menuNone}" {
@@ -712,7 +712,7 @@ function Set-CustomMethod() {
       }
       "${menuReset}" {
         $global:customMethod = "Reset"
-        $global:customReset  = $true
+        $global:customReset = $true
       }
       default { Write-Host "Invalid option, reselect please." }
     }
@@ -724,18 +724,18 @@ function Set-CustomMethod() {
 $customFileApplied = $false
 function Apply-CustomFile() {
   Param (
-    [Parameter(Mandatory=$true, Position=0)]
+    [Parameter(Mandatory = $true, Position = 0)]
     [string] $profilePath,
-    [Parameter(Mandatory=$true, Position=1)]
+    [Parameter(Mandatory = $true, Position = 1)]
     [string] $targetPath,
-    [Parameter(Mandatory=$true, Position=2)]
+    [Parameter(Mandatory = $true, Position = 2)]
     [string] $customPath,
-    [Parameter(Position=3)]
+    [Parameter(Position = 3)]
     [string] $otherCustomPath = ""
   )
 
   $local:leptonDir = "${profilePath}\chrome"
-  $local:gitDir    = "${leptonDir}\.git"
+  $local:gitDir = "${leptonDir}\.git"
   if ( Test-Path -Path "${customPath}" -PathType leaf ) {
     $global:customFileApplied = $true
 
@@ -809,7 +809,7 @@ function Clean-Lepton() {
 }
 function Clone-Lepton() {
   Param (
-    [Parameter(Position=0)]
+    [Parameter(Position = 0)]
     [string] $branch = ""
   )
 
@@ -825,9 +825,9 @@ function Clone-Lepton() {
 
 function Copy-Lepton() {
   Param (
-    [Parameter(Position=0)]
+    [Parameter(Position = 0)]
     [string] $chromeDir = "chrome",
-    [Parameter(Position=1)]
+    [Parameter(Position = 1)]
     [string] $userJSPath = "${chromeDir}\user.js"
   )
 
@@ -872,7 +872,7 @@ function Install-Profile() {
   Lepton-OkMessage "Started install"
 
   switch ( "${leptonInstallType}" ) {
-    "Local"   { Install-Local   }
+    "Local" { Install-Local }
     "Release" { Install-Release }
     "Network" { Install-Network }
   }
@@ -883,9 +883,9 @@ function Install-Profile() {
 #** Update *********************************************************************
 function Stash-File() {
   Param (
-    [Parameter(Mandatory=$true, Position=0)]
+    [Parameter(Mandatory = $true, Position = 0)]
     [string] $leptonDir,
-    [Parameter(Mandatory=$true, Position=1)]
+    [Parameter(Mandatory = $true, Position = 1)]
     [string] $gitDir
   )
 
@@ -897,11 +897,11 @@ function Stash-File() {
 }
 function Restore-File() {
   Param (
-    [Parameter(Mandatory=$true, Position=0)]
+    [Parameter(Mandatory = $true, Position = 0)]
     [string] $leptonDir,
-    [Parameter(Mandatory=$true, Position=1)]
+    [Parameter(Mandatory = $true, Position = 1)]
     [string] $gitDir,
-    [Parameter(Position=2)]
+    [Parameter(Position = 2)]
     [string] $gitDirty = "$false"
   )
 
@@ -914,16 +914,16 @@ function Update-Profile() {
   Check-Git
   foreach ( $profileDir in $global:firefoxProfileDirPaths ) {
     $local:LEPTONINFOPATH = "${profileDir}\${LEPTONINFOFILE}"
-    $local:LEPTONINFO     = Get-IniContent "${LEPTONINFOPATH}"
-    $local:sections       = $LEPTONINFO.Keys
+    $local:LEPTONINFO = Get-IniContent "${LEPTONINFOPATH}"
+    $local:sections = $LEPTONINFO.Keys
     if ( $sections.Length -ne 0 ) {
       foreach ( $section in $sections ) {
-        $local:Type   = $LEPTONINFO["${section}"]["Type"]
+        $local:Type = $LEPTONINFO["${section}"]["Type"]
         $local:Branch = $LEPTONINFO["${section}"]["Branch"]
-        $local:Path   = $LEPTONINFO["${section}"]["Path"]
+        $local:Path = $LEPTONINFO["${section}"]["Path"]
 
         $local:leptonDir = "${Path}\chrome"
-        $local:gitDir    = "${leptonDir}\.git"
+        $local:gitDir = "${leptonDir}\.git"
         if ( "${Type}" -eq "Git" ) {
           $local:gitDirty = $(Stash-File "${leptonDir}" "${gitDir}")
 
@@ -945,7 +945,7 @@ function Update-Profile() {
           git --git-dir "${gitDir}" --work-tree "${leptonDir}" checkout "${Branch}"
 
           if ( "${Type}" -eq "Release" ) {
-            $local:Ver=$(git --git-dir "${gitDir}" describe --tags --abbrev=0)
+            $local:Ver = $(git --git-dir "${gitDir}" describe --tags --abbrev=0)
             git --git-dir "${gitDir}" --work-tree "${leptonDir}" checkout "tags/${Ver}"
           }
 

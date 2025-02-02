@@ -5,7 +5,11 @@
 }
 
 @include Option("userChrome.combined.urlbar_with_reload") {
-  #nav-bar-customization-target > #stop-reload-button:hover ~ #urlbar-container #urlbar:not([focused="true"]) > #urlbar-background {
+  #nav-bar-customization-target
+    > #stop-reload-button:hover
+    ~ #urlbar-container
+    #urlbar:not([focused="true"])
+    > #urlbar-background {
     --toolbar-field-border-color: var(--toolbar-field-focus-border-color);
   }
 }

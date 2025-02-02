@@ -1,7 +1,9 @@
 @include Dark {
   @import "dark_blue_color";
 
-  :host, :root, dialog {
+  :host,
+  :root,
+  dialog {
     // button, select, input, menulist, radio
     @include DarkBlueContent;
   }

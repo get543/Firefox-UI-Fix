@@ -10,8 +10,7 @@
 @include Option("userChrome.rounding.square_field") {
   #searchFilter,
   #detailsPane html|input,
-  #places input
-  #editBMPanel_tagsSelectorRow > richlistbox {
+  #places input #editBMPanel_tagsSelectorRow > richlistbox {
     border-radius: 0 !important;
   }
 }

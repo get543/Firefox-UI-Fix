@@ -18,11 +18,15 @@
     --uc-tabbar-hide-height: calc(-1 * var(--uc-tabbar-height));
 
     --uc-navbar-height: var(--uc-navbar-height-default);
-    --uc-navbar-height-default: calc(16px + 2 * (var(--toolbarbutton-inner-padding) + var(--toolbarbutton-outer-padding)));
+    --uc-navbar-height-default: calc(
+      16px + 2 * (var(--toolbarbutton-inner-padding) + var(--toolbarbutton-outer-padding))
+    );
     --uc-navbar-hide-height: calc(-1 * var(--uc-navbar-height));
 
     --uc-bm-height: var(--uc-bm-height-default);
-    --uc-bm-height-default: calc(20px + (2 * var(--bookmark-block-padding, 4px))); /* 20px = 16px + (2px * 2) [margin block] */
+    --uc-bm-height-default: calc(
+      20px + (2 * var(--bookmark-block-padding, 4px))
+    ); /* 20px = 16px + (2px * 2) [margin block] */
     --uc-bm-hide-height: calc(-1 * var(--uc-bm-height));
 
     // Mac - None exist
@@ -32,10 +36,10 @@
     // https://github.com/mozilla/gecko-dev/blob/92d3050ecbbdd077ffa4cb78e0dffc4bd5021109/browser/themes/windows/browser.css#L65
     $_menubarPadding: 1px * 2; // menubar padding block 1px
     $_menubarHeightDefault: 1rem + 0.3rem * 2; // text 1rem, menu padding 0.3em
-    --uc-titlebar-buttonbox-height: #{ 32px + $_menubarPadding };
+    --uc-titlebar-buttonbox-height: #{32px + $_menubarPadding};
     --uc-menubar-height: 0px;
-    --uc-menubar-height-default: #{ calc($_menubarHeightDefault + $_menubarPadding) };
-    --uc-menubar-inner-height: #{ calc($_menubarHeightDefault - $_menubarPadding) };
+    --uc-menubar-height-default: #{calc($_menubarHeightDefault + $_menubarPadding)};
+    --uc-menubar-inner-height: #{calc($_menubarHeightDefault - $_menubarPadding)};
 
     @include Option("userChrome.hidden.tabbar") {
       @include OneLinerNavbarContent() {

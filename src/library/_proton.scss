@@ -42,11 +42,7 @@
     --organizer-toolbar-field-background: rgb(240, 240, 244); /* --lwt-accent-color */
     --organizer-toolbar-field-background-focused: Field;
     --organizer-toolbar-field-border-color: transparent;
-    --organizer-toolbar-field-focus-border-color: color-mix(
-      in srgb,
-      var(--organizer-outline-color) 50%,
-      transparent
-    );
+    --organizer-toolbar-field-focus-border-color: color-mix(in srgb, var(--organizer-outline-color) 50%, transparent);
     --organizer-toolbar-field-focus-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.23);
     --organizer-pane-field-border-color: color-mix(in srgb, currentColor 41%, transparent);
 

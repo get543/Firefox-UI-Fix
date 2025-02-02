@@ -53,7 +53,7 @@
 
 /* Remove side's background color border */
 :root#{$lwtheme}
-#TabsToolbar[brighttext]
+  #TabsToolbar[brighttext]
   #tabbrowser-tabs:not([noshadowfortests])
   .tabbrowser-tab:is([visuallyselected], [multiselected])
   > .tab-stack

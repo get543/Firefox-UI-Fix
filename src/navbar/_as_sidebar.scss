@@ -27,7 +27,9 @@
   // --toolbarbutton-outer-padding: 0px !important;
   z-index: 1;
 
-  margin-top: calc(var(--uc-tabbar-height) + var(--uc-bm-height) + var(--uc-menubar-height) + var(--uc-navbar-margin-block)); // drag space
+  margin-top: calc(
+    var(--uc-tabbar-height) + var(--uc-bm-height) + var(--uc-menubar-height) + var(--uc-navbar-margin-block)
+  ); // drag space
   overflow-y: visible !important; // show urlbar
 
   background: none !important;
@@ -49,11 +51,10 @@
   @include Option("userChrome.decoration.animate") {
     @include NotOption("userChrome.decoration.disable_sidebar_animate") {
       #nav-bar {
-        transition: margin-inline-start 0.25s var(--animation-easing-function),
-                    opacity 0.25s ease-in-out,
-                    visibility 0s linear,
-                    margin-top var(--uc-autohide-toolbar-speed) var(--animation-easing-function) var(--uc-autohide-toolbar-delay),
-                    var(--ext-theme-background-transition)!important;
+        transition: margin-inline-start 0.25s var(--animation-easing-function), opacity 0.25s ease-in-out,
+          visibility 0s linear,
+          margin-top var(--uc-autohide-toolbar-speed) var(--animation-easing-function) var(--uc-autohide-toolbar-delay),
+          var(--ext-theme-background-transition) !important;
         will-change: margin-inline-start, opacity, visibility, margin-top;
       }
       :root:has(#sidebar-box[hidden="true"]) #nav-bar,
@@ -63,7 +64,9 @@
     }
     @include Option("userChrome.decoration.disable_sidebar_animate") {
       #nav-bar {
-        transition: margin-top var(--uc-autohide-toolbar-speed) var(--animation-easing-function) var(--uc-autohide-toolbar-delay), var(--ext-theme-background-transition) !important;
+        transition: margin-top var(--uc-autohide-toolbar-speed) var(--animation-easing-function)
+            var(--uc-autohide-toolbar-delay),
+          var(--ext-theme-background-transition) !important;
         will-change: margin-top;
       }
       #navigator-toolbox:is(:hover, :focus-within) #nav-bar {

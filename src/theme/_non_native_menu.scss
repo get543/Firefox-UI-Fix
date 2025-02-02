@@ -8,7 +8,7 @@
     /* Override some menu color variables for light browser themes. */
     --menu-icon-opacity: 0.7;
     --nested-margin: -10px;
-    --windows-panel-box-shadow: 0 0 4px hsla(0,0%,0%,.2);
+    --windows-panel-box-shadow: 0 0 4px hsla(0, 0%, 0%, 0.2);
 
     --menu-checkbox-padding: 12px;
     @include Dark {
@@ -20,7 +20,9 @@
   //-- Global - Menu -----------------------------------------------------------
   /* For Windows 10, prevent using native OS drawing of certain menu elements,
      especially background colors and shadows. */
-  menu, menuitem, menucaption {
+  menu,
+  menuitem,
+  menucaption {
     appearance: none !important;
   }
 
@@ -197,7 +199,9 @@
 
   //-- Browser -----------------------------------------------------------------
   #mainPopupSet {
-    --menu-background-padding-default: calc( var(--context-menu-background-padding) + var(--context-menu-text-padding-default) );
+    --menu-background-padding-default: calc(
+      var(--context-menu-background-padding) + var(--context-menu-text-padding-default)
+    );
   }
 
   /* :not([hidden]) to avoid the display: flex unhiding the item. */
@@ -249,8 +253,11 @@
     background-color: var(--menuitem-hover-background-color) !important; // -moz-menuhover
   }
 
-  #context-navigation > .menuitem-iconic[_moz-menuactive="true"][disabled="true"] > .menu-iconic-left > .menu-iconic-icon {
-    background-color: transparent !important;// -moz-menuhoverdisabled
+  #context-navigation
+    > .menuitem-iconic[_moz-menuactive="true"][disabled="true"]
+    > .menu-iconic-left
+    > .menu-iconic-icon {
+    background-color: transparent !important; // -moz-menuhoverdisabled
   }
 
   /* If the menu is wider than the icons strictly need, the <menuitem> elements

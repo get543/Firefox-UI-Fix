@@ -1,6 +1,6 @@
 :root {
-  --uc-window-control-width: 0px;   /* Same as .titlebar-buttonbox-container      -  Space reserved for window controls */
-  --uc-window-drag-space-pre: 0px;  /* Same as .titlebar-spacer[type="pre-tabs"]  - Extra space reserved on both sides of the nav-bar to be able to drag the window */
+  --uc-window-control-width: 0px; /* Same as .titlebar-buttonbox-container      -  Space reserved for window controls */
+  --uc-window-drag-space-pre: 0px; /* Same as .titlebar-spacer[type="pre-tabs"]  - Extra space reserved on both sides of the nav-bar to be able to drag the window */
   --uc-window-drag-space-post: 0px; /* Same as .titlebar-spacer[type="post-tabs"] */
 
   --uc-window-control-space: calc(var(--uc-window-control-width) + var(--uc-window-drag-space-post));
@@ -53,20 +53,18 @@
   @include OS($linux) {
     $linuxWindowControlWidth: math.div(84px, 3); /* 84px is default value of linux */
 
-    @media (-moz-gtk-csd-minimize-button),
-    (-moz-gtk-csd-maximize-button),
-    (-moz-gtk-csd-close-button) {
-      --uc-window-control-width: #{ $linuxWindowControlWidth };
+    @media (-moz-gtk-csd-minimize-button), (-moz-gtk-csd-maximize-button), (-moz-gtk-csd-close-button) {
+      --uc-window-control-width: #{$linuxWindowControlWidth};
     }
 
     @media (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-maximize-button),
-    (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-close-button),
-    (-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
-      --uc-window-control-width: #{ $linuxWindowControlWidth * 2 };
+      (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-close-button),
+      (-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
+      --uc-window-control-width: #{$linuxWindowControlWidth * 2};
     }
 
     @media (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
-      --uc-window-control-width: #{ $linuxWindowControlWidth * 3  };
+      --uc-window-control-width: #{$linuxWindowControlWidth * 3};
     }
   }
 }

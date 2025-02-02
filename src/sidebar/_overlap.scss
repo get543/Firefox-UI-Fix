@@ -1,8 +1,4 @@
-@include Option(
-  "userChrome.sidebar.overlap",
-  "userChrome.autohide.sidebar",
-  "userChrome.navbar.as_sidebar"
-) {
+@include Option("userChrome.sidebar.overlap", "userChrome.autohide.sidebar", "userChrome.navbar.as_sidebar") {
   :root {
     /* Original
     min-width: 14em;
@@ -17,7 +13,7 @@
     --uc-sidebar-shadow-width: 0px;
     --uc-sidebar-shadow-position: var(--uc-sidebar-shadow-position-default);
     --uc-sidebar-shadow-position-default: calc(var(--uc-sidebar-shadow-size) + var(--uc-sidebar-shadow-width));
-    --uc-sidebar-shadow-color: #28282F;
+    --uc-sidebar-shadow-color: #28282f;
 
     --uc-autohide-sidebar-speed: 750ms;
     --uc-autohide-fullscreen-sidebar-speed: 1s;
@@ -31,7 +27,7 @@
 
 @include Option("userChrome.sidebar.overlap", "userChrome.autohide.sidebar") {
   #sidebar-box {
-    --uc-sidebar-shadow-color: #28282F;
+    --uc-sidebar-shadow-color: #28282f;
 
     z-index: var(--browser-area-z-index-sidebar-splitter, 3) !important;
     position: relative !important;
@@ -91,7 +87,7 @@
 
       @include Animate {
         transition: padding-inline-start 0.25s var(--animation-easing-function), opacity 0.25s ease-in-out,
-                    box-shadow 0s linear, visibility 0s linear !important;
+          box-shadow 0s linear, visibility 0s linear !important;
       }
     }
   }

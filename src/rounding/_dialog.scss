@@ -1,5 +1,6 @@
 @include Option("userChrome.rounding.square_dialog") {
-  dialog, .dialogBox {
+  dialog,
+  .dialogBox {
     border-radius: 0 !important;
   }
 }

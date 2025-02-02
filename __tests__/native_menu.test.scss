@@ -50,7 +50,10 @@
       }
       @include expect {
         @media not (-moz-windows-non-native-menus) {
-          @media (-moz-os-version: windows-win7), (-moz-os-version: windows-win8), (-moz-os-version: windows-win10), (-moz-platform: windows) {
+          @media (-moz-os-version: windows-win7),
+            (-moz-os-version: windows-win8),
+            (-moz-os-version: windows-win10),
+            (-moz-platform: windows) {
             @include example;
           }
         }
@@ -61,7 +64,10 @@
         }
 
         @media (-moz-windows-non-native-menus) {
-          @media (-moz-os-version: windows-win7), (-moz-os-version: windows-win8), (-moz-os-version: windows-win10), (-moz-platform: windows) {
+          @media (-moz-os-version: windows-win7),
+            (-moz-os-version: windows-win8),
+            (-moz-os-version: windows-win10),
+            (-moz-platform: windows) {
             @include example;
           }
         }
@@ -72,13 +78,19 @@
         }
 
         @media not (-moz-windows-non-native-menus) {
-          @media (-moz-os-version: windows-win7), (-moz-os-version: windows-win8), (-moz-os-version: windows-win10), (-moz-platform: windows) {
+          @media (-moz-os-version: windows-win7),
+            (-moz-os-version: windows-win8),
+            (-moz-os-version: windows-win10),
+            (-moz-platform: windows) {
             @include example;
           }
         }
 
         @media (-moz-windows-non-native-menus) {
-          @media (-moz-os-version: windows-win7), (-moz-os-version: windows-win8), (-moz-os-version: windows-win10), (-moz-platform: windows) {
+          @media (-moz-os-version: windows-win7),
+            (-moz-os-version: windows-win8),
+            (-moz-os-version: windows-win10),
+            (-moz-platform: windows) {
             @include example;
           }
         }
@@ -270,7 +282,8 @@
         }
       }
       @include expect {
-        @media (-moz-bool-pref: '"widget.macos.native-context-menus"'), (-moz-bool-pref: '"widget.gtk.native-context-menus"') {
+        @media (-moz-bool-pref: '"widget.macos.native-context-menus"'),
+          (-moz-bool-pref: '"widget.gtk.native-context-menus"') {
           @include example;
         }
 

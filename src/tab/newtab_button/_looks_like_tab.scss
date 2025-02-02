@@ -20,7 +20,7 @@
     background-image: var(--uc-tab-corner-left-side-svg), var(--uc-tab-corner-right-side-svg);
     background-repeat: no-repeat;
     background-position: left var(--uc-newtab-position) bottom var(--uc-tabs-navbar-shadow-size),
-                         right var(--uc-newtab-position) bottom var(--uc-tabs-navbar-shadow-size);
+      right var(--uc-newtab-position) bottom var(--uc-tabs-navbar-shadow-size);
     background-size: var(--uc-tab-corner-rounding);
 
     /* Corner Rounding Color */
@@ -44,20 +44,17 @@
       overflow-clip-margin: var(--uc-tab-corner-half-height) !important;
 
       background-image: var(--uc-tab-corner-left-side-svg),
-                        linear-gradient(to left, var(--uc-newtab-bgcolor), var(--uc-newtab-bgcolor)),
-                        var(--uc-tab-corner-right-side-svg);
+        linear-gradient(to left, var(--uc-newtab-bgcolor), var(--uc-newtab-bgcolor)),
+        var(--uc-tab-corner-right-side-svg);
       background-position: left var(--uc-newtab-position) bottom var(--uc-tabs-navbar-shadow-size),
-                           center bottom var(--uc-tabs-navbar-shadow-size),
-                           right var(--uc-newtab-position) bottom var(--uc-tabs-navbar-shadow-size);
+        center bottom var(--uc-tabs-navbar-shadow-size),
+        right var(--uc-newtab-position) bottom var(--uc-tabs-navbar-shadow-size);
       background-size: var(--uc-tab-corner-height) var(--uc-tab-corner-height),
-                       var(--uc-newtab-non-corner-bgwidth) var(--uc-tab-corner-height),
-                       var(--uc-tab-corner-height) var(--uc-tab-corner-height);
+        var(--uc-newtab-non-corner-bgwidth) var(--uc-tab-corner-height),
+        var(--uc-tab-corner-height) var(--uc-tab-corner-height);
       background-origin: padding-box;
 
-      @include Option(
-        "userChrome.tab.bottom_rounded_corner.chrome",
-        "userChrome.tab.bottom_rounded_corner.edge"
-      ) {
+      @include Option("userChrome.tab.bottom_rounded_corner.chrome", "userChrome.tab.bottom_rounded_corner.edge") {
         --uc-newtab-non-corner-bgwidth: calc(2 * var(--toolbarbutton-inner-padding));
       }
     }
@@ -74,20 +71,15 @@
 @media (-moz-windows-accent-color-in-titlebar) {
   @include AccentColor {
     :root:is([tabsintitlebar], [customtitlebar]):not(:-moz-window-inactive)#{$not_lwtheme} #tabs-newtab-button:hover,
-    :root:is([tabsintitlebar], [customtitlebar])[lwt-default-theme-in-dark-mode]:not(:-moz-window-inactive) #tabs-newtab-button:hover {
-      fill: color-mix(
-        in srgb,
-        $accentTextColor 10%,
-        transparent
-      ) !important; /* Hardcoded for compatibility */
+    :root:is([tabsintitlebar], [customtitlebar])[lwt-default-theme-in-dark-mode]:not(:-moz-window-inactive)
+      #tabs-newtab-button:hover {
+      fill: color-mix(in srgb, $accentTextColor 10%, transparent) !important; /* Hardcoded for compatibility */
     }
-    :root:is([tabsintitlebar], [customtitlebar]):not(:-moz-window-inactive)#{$not_lwtheme} #tabs-newtab-button:hover:active,
-    :root:is([tabsintitlebar], [customtitlebar])[lwt-default-theme-in-dark-mode]:not(:-moz-window-inactive) #tabs-newtab-button:hover:active {
-      fill: color-mix(
-        in srgb,
-        $accentTextColor 15%,
-        transparent
-      ) !important; /* Hardcoded for compatibility */
+    :root:is([tabsintitlebar], [customtitlebar]):not(:-moz-window-inactive)#{$not_lwtheme}
+      #tabs-newtab-button:hover:active,
+    :root:is([tabsintitlebar], [customtitlebar])[lwt-default-theme-in-dark-mode]:not(:-moz-window-inactive)
+      #tabs-newtab-button:hover:active {
+      fill: color-mix(in srgb, $accentTextColor 15%, transparent) !important; /* Hardcoded for compatibility */
     }
 
     @include Option("userChrome.tab.bottom_rounded_corner") {
@@ -98,17 +90,29 @@
         "userChrome.tab.bottom_rounded_corner.chrome",
         "userChrome.tab.bottom_rounded_corner.edge"
       ) {
-        :root:is([tabsintitlebar], [customtitlebar]):not(:-moz-window-inactive)#{$not_lwtheme} #tabs-newtab-button:hover,
-        :root:is([tabsintitlebar], [customtitlebar])[lwt-default-theme-in-dark-mode]:not(:-moz-window-inactive) #tabs-newtab-button:hover {
+        :root:is([tabsintitlebar], [customtitlebar]):not(:-moz-window-inactive)#{$not_lwtheme}
+          #tabs-newtab-button:hover,
+        :root:is([tabsintitlebar], [customtitlebar])[lwt-default-theme-in-dark-mode]:not(:-moz-window-inactive)
+          #tabs-newtab-button:hover {
           background-image: var(--uc-tab-corner-left-side-svg),
-                            linear-gradient(to left, color-mix(in srgb, $accentTextColor 10%, transparent), color-mix(in srgb, $accentTextColor 10%, transparent)),
-                            var(--uc-tab-corner-right-side-svg);
+            linear-gradient(
+              to left,
+              color-mix(in srgb, $accentTextColor 10%, transparent),
+              color-mix(in srgb, $accentTextColor 10%, transparent)
+            ),
+            var(--uc-tab-corner-right-side-svg);
         }
-        :root:is([tabsintitlebar], [customtitlebar]):not(:-moz-window-inactive)#{$not_lwtheme} #tabs-newtab-button:hover:active,
-        :root:is([tabsintitlebar], [customtitlebar])[lwt-default-theme-in-dark-mode]:not(:-moz-window-inactive) #tabs-newtab-button:hover:active {
+        :root:is([tabsintitlebar], [customtitlebar]):not(:-moz-window-inactive)#{$not_lwtheme}
+          #tabs-newtab-button:hover:active,
+        :root:is([tabsintitlebar], [customtitlebar])[lwt-default-theme-in-dark-mode]:not(:-moz-window-inactive)
+          #tabs-newtab-button:hover:active {
           background-image: var(--uc-tab-corner-left-side-svg),
-                            linear-gradient(to left, color-mix(in srgb, $accentTextColor 15%, transparent), color-mix(in srgb, $accentTextColor 15%, transparent)),
-                            var(--uc-tab-corner-right-side-svg);
+            linear-gradient(
+              to left,
+              color-mix(in srgb, $accentTextColor 15%, transparent),
+              color-mix(in srgb, $accentTextColor 15%, transparent)
+            ),
+            var(--uc-tab-corner-right-side-svg);
         }
       }
     }

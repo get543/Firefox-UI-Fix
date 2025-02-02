@@ -6,16 +6,15 @@
   $result: _clipPathURL($svg);
 
   @if $position == "left" {
-    --uc-tab-corner-left-side-svg: #{ url($svg) };
-    --uc-tab-corner-left-side-clipPath: #{ $result };
-  }
-  @else if $position == "right" {
-    --uc-tab-corner-right-side-svg: #{ url($svg) };
-    --uc-tab-corner-right-side-clipPath: #{ $result };
+    --uc-tab-corner-left-side-svg: #{url($svg)};
+    --uc-tab-corner-left-side-clipPath: #{$result};
+  } @else if $position == "right" {
+    --uc-tab-corner-right-side-svg: #{url($svg)};
+    --uc-tab-corner-right-side-clipPath: #{$result};
   }
 }
 @mixin _tabCornerSVG($left, $right) {
-  @include _clipPath($left,  "left" );
+  @include _clipPath($left, "left");
   @include _clipPath($right, "right");
 }
 
@@ -43,10 +42,7 @@
   --uc-tab-corner-bgimage: none;
 
   @include Option("userChrome.tab.bottom_rounded_corner.wave") {
-    @include _tabCornerSVG(
-      "../icons/tab-bottom-corner-left-wave.svg",
-      "../icons/tab-bottom-corner-right-wave.svg"
-    );
+    @include _tabCornerSVG("../icons/tab-bottom-corner-left-wave.svg", "../icons/tab-bottom-corner-right-wave.svg");
     --uc-tab-corner-left-side-svg-clipped: url("../icons/tab-bottom-corner-left-wave-clipped.svg");
     --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-wave-clipped.svg");
   }
@@ -59,10 +55,7 @@
     --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-australis-cilpped.svg");
   }
   @include Option("userChrome.tab.bottom_rounded_corner.chrome") {
-    @include _tabCornerSVG(
-      "../icons/tab-bottom-corner-left-chrome.svg",
-      "../icons/tab-bottom-corner-right-chrome.svg"
-    );
+    @include _tabCornerSVG("../icons/tab-bottom-corner-left-chrome.svg", "../icons/tab-bottom-corner-right-chrome.svg");
     --uc-tab-corner-left-side-svg-clipped: url("../icons/tab-bottom-corner-left-chrome-clipped.svg");
     --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-chrome-clipped.svg");
 
@@ -77,10 +70,7 @@
     --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-chromeLegacy-clipped.svg");
   }
   @include Option("userChrome.tab.bottom_rounded_corner.edge") {
-    @include _tabCornerSVG(
-      "../icons/tab-bottom-corner-left-edge.svg",
-      "../icons/tab-bottom-corner-right-edge.svg"
-    );
+    @include _tabCornerSVG("../icons/tab-bottom-corner-left-edge.svg", "../icons/tab-bottom-corner-right-edge.svg");
     --uc-tab-corner-left-side-svg-clipped: url("../icons/tab-bottom-corner-left-edge-clipped.svg");
     --uc-tab-corner-right-side-svg-clipped: url("../icons/tab-bottom-corner-right-edge-clipped.svg");
 
@@ -196,7 +186,7 @@
   /* Fill color for GTK */
   :root:not([lwtheme="true"]) .tabbrowser-tab {
     @include Option("userChrome.tab.box_shadow") {
-      --uc-tab-shadow-color: rgba(0,0,0, 0.4);
+      --uc-tab-shadow-color: rgba(0, 0, 0, 0.4);
     }
     &[visuallyselected] .tab-background {
       background-clip: content-box;
@@ -208,9 +198,9 @@
          * --toolbar-non-lwt-bgimage: linear-gradient(rgba(255,255,255,.15), rgba(255,255,255,.15));
          */
         --uc-tab-corner-bgimage: linear-gradient(var(--toolbar-non-lwt-bgcolor), var(--toolbar-non-lwt-bgcolor));
-        fill: rgba(255, 255, 255, .075);
+        fill: rgba(255, 255, 255, 0.075);
         @include NotOption("userChrome.tab.color_like_toolbar") {
-          fill: rgba(255, 255, 255, .15);
+          fill: rgba(255, 255, 255, 0.15);
         }
       }
     }

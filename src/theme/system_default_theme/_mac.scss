@@ -9,7 +9,7 @@
     --mac-field-bgcolor: Window;
     --mac-panel-bgcolor: Menu;
     @if mode.isSTANDARD() {
-        --mac-sidebar-bgcolor: Window; // TODO: -moz-sidebar;
+      --mac-sidebar-bgcolor: Window; // TODO: -moz-sidebar;
     }
     @if mode.isESR() {
       --mac-sidebar-bgcolor: -moz-mac-source-list;

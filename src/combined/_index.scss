@@ -9,10 +9,10 @@
   // Init
   #nav-bar {
     // Color
-    --uc-combined-circlebutton-background: hsla(0,100%,100%,.5);
+    --uc-combined-circlebutton-background: hsla(0, 100%, 100%, 0.5);
     --uc-combined-circlebutton-hover-background: var(--uc-combined-circlebutton-background);
     --uc-combined-circlebutton-active-background: var(--toolbarbutton-active-background);
-    --uc-combined-circlebutton-border-color: hsla(240,5%,5%,.3);
+    --uc-combined-circlebutton-border-color: hsla(240, 5%, 5%, 0.3);
     &[brighttext] {
       // Original: Using :-moz-lwtheme
       --uc-combined-circlebutton-background: var(--toolbarbutton-hover-background);

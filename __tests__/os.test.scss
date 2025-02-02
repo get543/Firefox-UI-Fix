@@ -104,7 +104,10 @@
         }
       }
       @include expect {
-        @media (-moz-os-version: windows-win7), (-moz-os-version: windows-win8), (-moz-os-version: windows-win10), (-moz-platform: windows) {
+        @media (-moz-os-version: windows-win7),
+          (-moz-os-version: windows-win8),
+          (-moz-os-version: windows-win10),
+          (-moz-platform: windows) {
           @include example;
         }
       }
@@ -119,7 +122,14 @@
         }
       }
       @include expect {
-        @media (-moz-os-version: windows-win7), (-moz-platform: windows-win7), (-moz-os-version: windows-win8), (-moz-platform: windows-win8), (-moz-os-version: windows-win10), (-moz-platform: windows-win10), (-moz-mac-big-sur-theme: 0), (-moz-gtk-csd-available) {
+        @media (-moz-os-version: windows-win7),
+          (-moz-platform: windows-win7),
+          (-moz-os-version: windows-win8),
+          (-moz-platform: windows-win8),
+          (-moz-os-version: windows-win10),
+          (-moz-platform: windows-win10),
+          (-moz-mac-big-sur-theme: 0),
+          (-moz-gtk-csd-available) {
           @include example;
         }
         @supports -moz-bool-pref("layout.css.osx-font-smoothing.enabled") {
@@ -137,7 +147,12 @@
         }
       }
       @include expect {
-        @media (-moz-os-version: windows-win7), (-moz-os-version: windows-win8), (-moz-os-version: windows-win10), (-moz-platform: windows), (-moz-mac-big-sur-theme: 0), (-moz-gtk-csd-available) {
+        @media (-moz-os-version: windows-win7),
+          (-moz-os-version: windows-win8),
+          (-moz-os-version: windows-win10),
+          (-moz-platform: windows),
+          (-moz-mac-big-sur-theme: 0),
+          (-moz-gtk-csd-available) {
           @include example;
         }
         @supports -moz-bool-pref("layout.css.osx-font-smoothing.enabled") {
@@ -276,7 +291,7 @@
         }
       }
       @include expect {
-        @media  (-moz-platform: windows), (-moz-mac-big-sur-theme: 0), (-moz-gtk-csd-available) {
+        @media (-moz-platform: windows), (-moz-mac-big-sur-theme: 0), (-moz-gtk-csd-available) {
           @include example;
         }
         @supports -moz-bool-pref("layout.css.osx-font-smoothing.enabled") {
