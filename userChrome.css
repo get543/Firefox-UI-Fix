@@ -38,13 +38,15 @@
 
 /* Default state: Set initial height to enable animation */
 #main-window #TabsToolbar > .toolbar-items {
-  height: 3em !important;
+  height: 3.5em !important; /* Original 3em + 0.5em padding */
+  display: flex;
+  align-items: flex-end !important;
 }
 #main-window[uidensity="touch"] #TabsToolbar > .toolbar-items {
-  height: 3.35em !important;
+  height: 3.85em !important; /* 3.35em + 0.5em padding */
 }
 #main-window[uidensity="compact"] #TabsToolbar > .toolbar-items {
-  height: 2.7em !important;
+  height: 3.2em !important; /* 2.7em + 0.5em padding */
 }
 
 /* Hidden state: Hide native tabs strip */
@@ -80,6 +82,6 @@
 
 
 /* Remove Menubar */
-menu[label="Tools"] {
+/* menu[label="Tools"] {
   display: none !important;
-}
+} */
