@@ -27,6 +27,11 @@
   visibility: collapse;
 } */
 
+/* Hide the Firefox sidebar header */
+#sidebar-header {
+    display: none !important;
+}
+
 /*** Dynamic Switch Default Tabs (Horizontal) with Sidebery Tabs (Vertical) ***/
 /**
  * Dynamic Horizontal Tabs Toolbar (with animations)
